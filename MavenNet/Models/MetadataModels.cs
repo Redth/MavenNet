@@ -23,7 +23,8 @@ namespace MavenNet.Models
 		[XmlElement (ElementName="versioning")]
 		public Versioning Versioning { get; set; }
 
-		[XmlElement (ElementName="plugins")]
+		[XmlArrayAttribute("plugins")]
+		[XmlArrayItemAttribute("plugin")]
 		public List<MetadataPlugin> Plugins { get; set; }
 
 		[XmlIgnore]
@@ -62,10 +63,12 @@ namespace MavenNet.Models
 		[XmlElement (ElementName="snapshot")]
 		public Snapshot Snapshot { get; set; }
 
-		[XmlElement (ElementName="versions")]
+		[XmlArrayAttribute("versions")]
+		[XmlArrayItemAttribute("version", DataType = "string")]
 		public List<string> Versions { get; set; }
 
-		[XmlElement (ElementName="snapshotVersions")]
+		[XmlArrayAttribute("snapshotVersions")]
+		[XmlArrayItemAttribute("snapshotVersion")]
 		public List<SnapshotVersion> SnapshotVersions { get; set; }
 	}
 
