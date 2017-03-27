@@ -65,10 +65,9 @@ namespace MavenNet
 			const string rxPattern = @"<a\s+href\s?=\s?""(?<dir>.*?)"">";
 
 			var list = new List<string>();
-			var html = htmlListingCache?[path] ?? await LoadTextFileAsync(path);
-
 			if (!htmlListingCache.ContainsKey(path))
-				htmlListingCache.Add(path, html);
+				htmlListingCache.Add(path, await LoadTextFileAsync(path));
+			var html = htmlListingCache[path];
 
 			var matches = Regex.Matches(html, rxPattern);
 
@@ -90,10 +89,9 @@ namespace MavenNet
 			const string rxPattern = @"<a\s+href\s?=\s?""(?<dir>.*?)"">";
 
 			var list = new List<string>();
-			var html = htmlListingCache?[path] ?? await LoadTextFileAsync(path);
-
 			if (!htmlListingCache.ContainsKey(path))
-				htmlListingCache.Add(path, html);
+				htmlListingCache.Add(path, await LoadTextFileAsync(path));
+			var html = htmlListingCache[path];
 
 			var matches = Regex.Matches(html, rxPattern);
 
