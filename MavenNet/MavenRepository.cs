@@ -127,10 +127,7 @@ namespace MavenNet
 			else // Version was specified
 			{
 				// See if the specified version exists anywhere in the metadata
-				if (version == metadata?.Version
-					|| version == metadata?.Versioning?.Latest
-					|| version == metadata?.Versioning?.Release
-				    || (metadata?.Versioning?.Versions?.Contains(version) ?? false))
+				if (metadata?.AllVersions?.Contains(version) ?? false)
 					validVersion = version;
 			}
 
