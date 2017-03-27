@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MavenNet", "MavenNet\MavenNet.csproj", "{58557892-52DF-4BA2-90F4-3C4473508ADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MavenNet.Tests", "MavenNet.Tests\MavenNet.Tests.csproj", "{CAF92D49-B715-429C-9E34-57B7E6E57376}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58557892-52DF-4BA2-90F4-3C4473508ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58557892-52DF-4BA2-90F4-3C4473508ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58557892-52DF-4BA2-90F4-3C4473508ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58557892-52DF-4BA2-90F4-3C4473508ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF92D49-B715-429C-9E34-57B7E6E57376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF92D49-B715-429C-9E34-57B7E6E57376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF92D49-B715-429C-9E34-57B7E6E57376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF92D49-B715-429C-9E34-57B7E6E57376}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
