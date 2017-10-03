@@ -1,161 +1,108 @@
-using System;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MavenNet.Models;
 
 namespace MavenNet
 {
-	public interface IMavenRepository
-	{
-		List<Models.Metadata> Metadata { get; }
-
-		Task LoadMetadataAsync();
-
-		Task<Models.Project> GetProjectAsync(string groupId, string artifactId);
-		Task<Models.Project> GetProjectAsync(string groupId, string artifactId, string version);
-
-		Task<Stream> LoadFileAsync(string path);
-		Task<string> LoadTextFileAsync(string path);
-		Task<IEnumerable<string>> GetFilesAsync(string path);
-		Task<IEnumerable<string>> GetDirectoriesAsync(string path);
-		string CombinePaths(params string[] paths);
-	}
-
 	public abstract class MavenRepository : IMavenRepository
 	{
-		public static IMavenRepository OpenUrl(string url)
+		public static GoogleMavenRepository FromGoogle()
+		{
+			return new GoogleMavenRepository();
+		}
+
+		public static FileBasedMavenRepository FromUrl(string url)
 		{
 			return new UrlMavenRepository(url);
 		}
 
-		public static IMavenRepository OpenDirectory(string directoryPath)
+		public static FileBasedMavenRepository FromDirectory(string directoryPath)
 		{
 			return new DirectoryMavenRepository(directoryPath);
 		}
 
-		public abstract Task<Stream> LoadFileAsync(string path);
-		public abstract Task<string> LoadTextFileAsync(string path);
-		public abstract Task<IEnumerable<string>> GetFilesAsync(string path);
-		public abstract Task<IEnumerable<string>> GetDirectoriesAsync(string path);
-		public abstract string CombinePaths(params string[] paths);
+		public IList<Group> Groups { get; private set; } = new List<Group>();
 
-		public List<Models.Metadata> Metadata { get; private set; } = new List<Models.Metadata>();
 
-		protected virtual void BeforeLoadMetadata()
+		protected abstract char PathSeparator { get; }
+
+		protected abstract Task<Stream> OpenFileAsync(string path);
+		protected abstract Task<IEnumerable<string>> GetGroupIdsAsync();
+		protected abstract Task<IEnumerable<Artifact>> GetArtifactsAsync(string groupId);
+		protected abstract string CombinePaths(params string[] parts);
+
+		public virtual async Task Refresh()
 		{
+			var groupIds = await GetGroupIdsAsync().ConfigureAwait(false);
+			
+			await Refresh(groupIds.ToArray()); 
 		}
 
-		public async Task LoadMetadataAsync()
+		public virtual async Task Refresh (params string[] groupIds)
 		{
-			BeforeLoadMetadata();
+			Groups.Clear();
 
-			var items = new List<Models.Metadata>();
+			foreach (var groupId in groupIds) {
 
-			await recurseDir(string.Empty, items);
+				var g = new Group(groupId);
 
-			Metadata.Clear();
-			Metadata.AddRange(items);
-		}
+				var artifacts = await GetArtifactsAsync(groupId).ConfigureAwait(false);
 
-		async Task recurseDir(string path, List<Models.Metadata> items)
-		{
-			var files = await GetFilesAsync(path);
-
-			// Look for maven-metadata.xml
-			var metadataItem = files?.FirstOrDefault(f => f.Equals("maven-metadata.xml", StringComparison.OrdinalIgnoreCase));
-
-			// If we found the maven-metadata.xml file, we are on an artifact folder
-			// We can stop recursing subdirs at this point since we found artifact info
-			if (!string.IsNullOrEmpty (metadataItem))
-			{
-				var itemStream = await LoadFileAsync (CombinePaths(path, metadataItem));
-
-				var m = MavenMetadataParser.Parse (itemStream);
-
-				if (m != null) {
-					m.Path = path;
-					items.Add (m);
+				// Set a reference to this repository implementation
+				foreach (var a in artifacts) {
+					a.Repository = this;
+					g.Artifacts.Add(a);
 				}
-			}
-			else
-			{
-				// If no maven-metadata.xml file was found let's try to keep recursing folders to find an artifact dir
-				var dirs = await GetDirectoriesAsync(path);
-
-				// Recurse over subdirs
-				foreach (var dir in dirs)
-				{
-					var rPath = CombinePaths(path, dir);
-					await recurseDir(rPath, items);
-				}
+					
+				Groups.Add(g);
 			}
 		}
 
-		public Task<Models.Project> GetProjectAsync(string groupId, string artifactId)
+		public Task<Stream> OpenArtifactPomFile (string groupId, string artifactId, string version)
+		{
+			var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, version, artifactId + "-" + version + ".pom");
+
+			return OpenFileAsync(path);
+		}
+
+		public Task<Stream> OpenArtifactLibraryFile(string groupId, string artifactId, string version, string packaging = "jar")
+		{
+			var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, version, artifactId + "-" + version + "." + packaging.ToLowerInvariant().TrimStart('.'));
+
+			return OpenFileAsync(path);
+		}
+
+		public Task<Stream> OpenMavenMetadataFile(string groupId, string artifactId)
+		{
+			var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, "maven-metadata.xml");
+
+			return OpenFileAsync(path);
+		}
+
+		public Task<Project> GetProjectAsync(string groupId, string artifactId)
 		{
 			return GetProjectAsync(groupId, artifactId, null);
 		}
 
-		public async Task<Models.Project> GetProjectAsync(string groupId, string artifactId, string version)
+		public async Task<Project> GetProjectAsync(string groupId, string artifactId, string version)
 		{
-			var metadata = Metadata?.FirstOrDefault(m => m.GroupId == groupId && m.ArtifactId == artifactId);
+			var group = Groups?.FirstOrDefault(g => g.Id == groupId);
+			if (group == null)
+				throw new KeyNotFoundException($"No group found for groupId: `{groupId}`");
 
-			if (metadata == null)
-				return null;
+			var artifact = group.Artifacts?.FirstOrDefault(a => a.Id == artifactId);
+			if (artifact == null)
+				throw new KeyNotFoundException($"No artifact found for artifactId: `{artifactId}`");
+			
+			var hasVersion = artifact.Versions?.Any(v => v == version) ?? false;
 
-			// Will store an actual version number that exists in the metadata here to fetch
-			string validVersion = null;
+			if (!hasVersion)
+				throw new KeyNotFoundException($"No version for artifact `{artifactId}` with version: `{version}`");
 
-			// Now we need to validate the requested version actually exists
-			// If no version parameter was specified, we'll try and pick the most sane option from the metadata
-			if (string.IsNullOrEmpty(version))
-			{
-				// Look at the Version tag, then Latest, then Release, then worst case grab the first from the list
-				validVersion = metadata?.Version;
-				if (string.IsNullOrEmpty(validVersion))
-					validVersion = metadata?.Versioning?.Latest;
-				if (string.IsNullOrEmpty(validVersion))
-					validVersion = metadata?.Versioning?.Release;
-				if (string.IsNullOrEmpty(validVersion))
-					validVersion = metadata?.Versioning?.Versions?.FirstOrDefault();
-			}
-			else // Version was specified
-			{
-				// See if the specified version exists anywhere in the metadata
-				if (metadata?.AllVersions?.Contains(version) ?? false)
-					validVersion = version;
-			}
-
-			if (string.IsNullOrEmpty(validVersion))
-				return null;
-
-			// POM file should always be in this format
-			var pomFile = CombinePaths(metadata.Path, validVersion, $"{metadata.ArtifactId}-{validVersion}.pom");
-
-			var stream = await LoadFileAsync(pomFile);
-
-			var project = PomParser.Parse(stream);
-
-			if (project != null)
-			{
-				project.Repository = this;
-				project.Directory = CombinePaths(metadata.Path, validVersion);
-				project.Path = pomFile;
-			}
-
-
-			return project;
+			return PomParser.Parse(await artifact.OpenPomFile(version).ConfigureAwait(false));
 		}
-	}
-
-	internal class DirectoryListing
-	{
-		public bool IsDirectory { get; set; }
-		public string Name { get; set; }
 	}
 }

@@ -10,8 +10,7 @@ using MavenNet.Models;
 
 namespace MavenNet
 {
-
-	public sealed class UrlMavenRepository : MavenRepository
+	public sealed class UrlMavenRepository : FileBasedMavenRepository
 	{
 		HttpClient http;
 
@@ -23,41 +22,21 @@ namespace MavenNet
 
 		public Uri BaseUri { get; private set; }
 
-		public override Task<Stream> LoadFileAsync(string path)
+		protected override Task<Stream> OpenFileAsync(string path)
 		{
-			var fullUri = BaseUri;
+			var uriBuilder = new UriBuilder(BaseUri);
+			uriBuilder.Path += "/" + path.TrimStart('/');
 
-			if (!string.IsNullOrWhiteSpace(path))
-			{
-				var uriBuilder = new UriBuilder(BaseUri);
-				uriBuilder.Path += "/" + path.TrimStart('/');
-				fullUri = uriBuilder.Uri;
-			}
-
-			return http.GetStreamAsync(fullUri);
-		}
-
-		public override Task<string> LoadTextFileAsync(string path)
-		{
-			var fullUri = BaseUri;
-
-			if (!string.IsNullOrWhiteSpace(path))
-			{
-				var uriBuilder = new UriBuilder(BaseUri);
-				uriBuilder.Path += "/" + path.TrimStart('/');
-				fullUri = uriBuilder.Uri;
-			}
-
-			return http.GetStringAsync(fullUri);
+			return http.GetStreamAsync(uriBuilder.Uri);
 		}
 
 		Dictionary<string, string> htmlListingCache = new Dictionary<string, string>();
 
-		protected override void BeforeLoadMetadata()
+		public override Task Refresh()
 		{
-			base.BeforeLoadMetadata();
-
 			htmlListingCache.Clear();
+
+			return base.Refresh();
 		}
 
 		public override async Task<IEnumerable<string>> GetDirectoriesAsync(string path)
@@ -65,9 +44,12 @@ namespace MavenNet
 			const string rxPattern = @"<a\s+href\s?=\s?""(?<dir>.*?)"">";
 
 			var list = new List<string>();
-			if (!htmlListingCache.ContainsKey(path))
-				htmlListingCache.Add(path, await LoadTextFileAsync(path));
-			var html = htmlListingCache[path];
+			//var html = htmlListingCache?[path] ?? await LoadTextFileAsync(path).ConfigureAwait (false);
+
+			//if (!htmlListingCache.ContainsKey(path))
+			//htmlListingCache.Add(path, html);
+
+			var html = await LoadTextFileAsync(path);
 
 			var matches = Regex.Matches(html, rxPattern);
 
@@ -89,11 +71,19 @@ namespace MavenNet
 			const string rxPattern = @"<a\s+href\s?=\s?""(?<dir>.*?)"">";
 
 			var list = new List<string>();
-			if (!htmlListingCache.ContainsKey(path))
-				htmlListingCache.Add(path, await LoadTextFileAsync(path));
-			var html = htmlListingCache[path];
+			string html = null;
 
-			var matches = Regex.Matches(html, rxPattern);
+			if (!htmlListingCache.ContainsKey(path)) {
+				try
+				{
+					html = await LoadTextFileAsync(path).ConfigureAwait(false);
+				} catch {}
+
+				if (!string.IsNullOrEmpty(html))
+					htmlListingCache.Add(path, html);
+			}
+
+			var matches = Regex.Matches(html ?? string.Empty, rxPattern);
 
 			foreach (Match m in matches)
 			{
@@ -108,13 +98,18 @@ namespace MavenNet
 			return list;
 		}
 
-		public override string CombinePaths(params string[] paths)
+		protected override char PathSeparator
+		{
+			get { return '/'; }
+		}
+
+		protected override string CombinePaths(params string[] parts)
 		{
 			var result = new StringBuilder();
 
 			var index = 0;
 
-			foreach (var p in paths)
+			foreach (var p in parts)
 			{
 				if (index <= 0)
 					result.Append(p.TrimEnd('/'));
@@ -124,6 +119,20 @@ namespace MavenNet
 			}
 
 			return result.ToString();
+		}
+
+		Task<string> LoadTextFileAsync(string path)
+		{
+			var fullUri = BaseUri;
+
+			if (!string.IsNullOrWhiteSpace(path))
+			{
+				var uriBuilder = new UriBuilder(BaseUri);
+				uriBuilder.Path += "/" + path.TrimStart('/');
+				fullUri = uriBuilder.Uri;
+			}
+
+			return http.GetStringAsync(fullUri);
 		}
 	}
 	

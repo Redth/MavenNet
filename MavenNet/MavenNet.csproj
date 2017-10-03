@@ -7,8 +7,9 @@
     <OutputType>Library</OutputType>
     <RootNamespace>MavenNet</RootNamespace>
     <AssemblyName>MavenNet</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
   </PropertyGroup>
+	
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -24,7 +25,6 @@
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\MavenNet.xml</DocumentationFile>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
@@ -41,10 +41,15 @@
     <Compile Include="PomParser.cs" />
     <Compile Include="Models\MetadataModels.cs" />
     <Compile Include="Models\PomMavenXsdModels.cs" />
-    <Compile Include="MavenRepository.cs" />
+    <Compile Include="FileBasedMavenRepository.cs" />
     <Compile Include="DirectoryMavenRepository.cs" />
     <Compile Include="UrlMavenRepository.cs" />
     <Compile Include="Models\ProjectExtensions.cs" />
+    <Compile Include="GoogleMavenRepository.cs" />
+    <Compile Include="MavenRepository.cs" />
+    <Compile Include="IMavenRepository.cs" />
+    <Compile Include="Models\Artifact.cs" />
+    <Compile Include="Models\Group.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

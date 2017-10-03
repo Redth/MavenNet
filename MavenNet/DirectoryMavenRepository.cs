@@ -11,7 +11,7 @@ using MavenNet.Models;
 namespace MavenNet
 {
 
-	public sealed class DirectoryMavenRepository : MavenRepository
+	public sealed class DirectoryMavenRepository : FileBasedMavenRepository
 	{
 		public DirectoryMavenRepository(string directoryPath)
 		{
@@ -23,27 +23,12 @@ namespace MavenNet
 
 		public string BasePath { get; private set; }
 
-		public override Task<Stream> LoadFileAsync(string path)
+		protected override Task<Stream> OpenFileAsync(string path)
 		{
-			var fullPath = BasePath;
-
-			if (!string.IsNullOrWhiteSpace (path))
-				fullPath = Path.Combine(BasePath, path);
+			var fullPath = CombinePaths(BasePath, path);
 
 			return Task.FromResult((Stream)File.OpenRead(fullPath));
 		}
-
-		public override Task<string> LoadTextFileAsync(string path)
-		{
-			var fullPath = BasePath;
-
-			if (!string.IsNullOrWhiteSpace(path))
-				fullPath = Path.Combine(BasePath, path);
-
-			using (var sr = new StreamReader(File.OpenRead(fullPath)))
-				return sr.ReadToEndAsync();
-		}
-
 
 		public override Task<IEnumerable<string>> GetFilesAsync (string path)
 		{
@@ -75,9 +60,14 @@ namespace MavenNet
 			return Task.FromResult(dirInfo.GetDirectories().Select(f => f.Name));
 		}
 
-		public override string CombinePaths(params string[] paths)
+		protected override char PathSeparator
 		{
-			return Path.Combine(paths);
+			get { return Path.DirectorySeparatorChar; }
+		}
+
+		protected override string CombinePaths(params string[] parts)
+		{
+			return Path.Combine(parts);
 		}
 	}
 	

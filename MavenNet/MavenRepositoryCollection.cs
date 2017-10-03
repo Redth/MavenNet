@@ -19,8 +19,6 @@ namespace MavenNet
 
 		public IMavenRepository[] Repositories { get; private set; }
 
-		public List<Metadata> Metadata { get; set; } = new List<Models.Metadata>();
-
 		public Task<Project> GetProjectAsync(string groupId, string artifactId)
 		{
 			return GetProjectAsync (groupId, artifactId, null);
@@ -30,7 +28,7 @@ namespace MavenNet
 		{
 			foreach (var r in Repositories)
 			{
-				var p = await r.GetProjectAsync(groupId, artifactId, version);
+				var p = await r.GetProjectAsync(groupId, artifactId, version).ConfigureAwait(false);
 
 				if (p != null)
 					return p;
@@ -39,10 +37,10 @@ namespace MavenNet
 			return null;
 		}
 
-		public async Task LoadMetadataAsync()
+		public async Task Refresh()
 		{
 			foreach (var r in Repositories)
-				await r.LoadMetadataAsync();
+				await r.Refresh().ConfigureAwait(false);
 		}
 	}
 }
