@@ -44,7 +44,6 @@
     <Compile Include="FileBasedMavenRepository.cs" />
     <Compile Include="DirectoryMavenRepository.cs" />
     <Compile Include="UrlMavenRepository.cs" />
-    <Compile Include="Models\ProjectExtensions.cs" />
     <Compile Include="GoogleMavenRepository.cs" />
     <Compile Include="MavenRepository.cs" />
     <Compile Include="IMavenRepository.cs" />
