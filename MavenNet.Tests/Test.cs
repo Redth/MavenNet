@@ -1,18 +1,20 @@
 ﻿using NUnit.Framework;
 using System.Linq;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace MavenNet.Tests
 {
-	[TestFixture()]
+	[TestFixture]
 	public class Test
 	{
-		const string GPS_LOCAL_REPO = "/Users/redth/Library/Developer/Xamarin/android-sdk-macosx/extras/google/m2repository/";
+		static readonly string HOME_DIR = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
+		static readonly string GPS_LOCAL_REPO = Path.Combine (HOME_DIR, "Library/Developer/Xamarin/android-sdk-macosx/extras/google/m2repository/");
 		const string ANDROID_THINGS_URL_REPO = "https://google.bintray.com/androidthings";
 		const string GOOGLE_MAVEN_REPO = "https://dl.google.com/dl/android/maven2/";
 
-		[Test()]
+		[Test]
 		public async Task Test_Refresh_URL()
 		{
 			var repo = MavenRepository.FromUrl(ANDROID_THINGS_URL_REPO);
