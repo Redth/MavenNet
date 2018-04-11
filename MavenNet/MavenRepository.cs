@@ -61,6 +61,21 @@ namespace MavenNet
 			}
 		}
 
+        public virtual Task Refresh(params Group[] groups)
+        {
+            Groups.Clear();
+
+            foreach (var group in groups)
+            {
+                foreach (var a in group.Artifacts)
+                    a.Repository = this;
+
+                Groups.Add(group);
+            }
+
+            return Task.CompletedTask;
+        }
+
 		public Task<Stream> OpenArtifactPomFile (string groupId, string artifactId, string version)
 		{
 			var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, version, artifactId + "-" + version + ".pom");
