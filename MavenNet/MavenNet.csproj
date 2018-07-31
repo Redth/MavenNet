@@ -20,4 +20,7 @@
   <ItemGroup>
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="NuGet.Versioning" Version="4.7.0" />
+  </ItemGroup>
 </Project>

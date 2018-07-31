@@ -10,6 +10,7 @@ namespace MavenNet.Tests
 		const string GPS_LOCAL_REPO = "/Users/redth/Library/Developer/Xamarin/android-sdk-macosx/extras/google/m2repository/";
 		const string ANDROID_THINGS_URL_REPO = "https://google.bintray.com/androidthings";
 		const string GOOGLE_MAVEN_REPO = "https://dl.google.com/dl/android/maven2/";
+		const string CENTRAL_MAVEN_REPO = "http://repo1.maven.org/maven2/";
 
 		[Fact]
 		public async Task Test_Refresh_URL()
@@ -41,6 +42,18 @@ namespace MavenNet.Tests
 
 			Assert.True(project != null);
 		}
+
+
+		[Fact]
+        public async Task Test_GroupIds_Project_URL_Maven()
+        {
+            var repo = MavenRepository.FromUrl(CENTRAL_MAVEN_REPO);
+            await repo.Refresh("com.facebook.android");
+
+			var project = await repo.GetProjectAsync("com.facebook.android", "facebook-android-sdk", "4.33.0");
+
+            Assert.True(project != null);
+        }
 
 		//[Trait("Category", "LOCAL_ONLY")]
 		//[Fact]
