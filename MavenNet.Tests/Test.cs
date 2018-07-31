@@ -44,7 +44,7 @@ namespace MavenNet.Tests
 		}
 
 
-		[Fact]
+		//[Fact]
         public async Task Test_GroupIds_Project_URL_Maven()
         {
             var repo = MavenRepository.FromUrl(CENTRAL_MAVEN_REPO);
