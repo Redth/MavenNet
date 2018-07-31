@@ -41,7 +41,7 @@ namespace MavenNet
 
 		public override async Task<IEnumerable<string>> GetDirectoriesAsync(string path)
 		{
-			const string rxPattern = @"<a\s+href\s?=\s?""(?<dir>.*?)"">";
+			const string rxPattern = @"<a\s+href\s?=\s?""(?<dir>.*?)"".*?";
 
 			var list = new List<string>();
 			//var html = htmlListingCache?[path] ?? await LoadTextFileAsync(path).ConfigureAwait (false);
@@ -51,7 +51,7 @@ namespace MavenNet
 
 			var html = await LoadTextFileAsync(path);
 
-			var matches = Regex.Matches(html, rxPattern);
+			var matches = Regex.Matches(html, rxPattern, RegexOptions.Singleline);
 
 			foreach (Match m in matches)
 			{
@@ -128,7 +128,7 @@ namespace MavenNet
 			if (!string.IsNullOrWhiteSpace(path))
 			{
 				var uriBuilder = new UriBuilder(BaseUri);
-				uriBuilder.Path += "/" + path.TrimStart('/');
+				uriBuilder.Path += (uriBuilder.Path.EndsWith("/") ? "" : "/") + path.TrimStart('/');
 				fullUri = uriBuilder.Uri;
 			}
 
