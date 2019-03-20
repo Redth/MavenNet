@@ -14,6 +14,11 @@ namespace MavenNet
 			return new GoogleMavenRepository();
 		}
 
+        public static MavenCentralRepository FromMavenCentral()
+        {
+            return new MavenCentralRepository();
+        }
+
 		public static FileBasedMavenRepository FromUrl(string url)
 		{
 			return new UrlMavenRepository(url);

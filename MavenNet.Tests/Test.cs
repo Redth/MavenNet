@@ -7,10 +7,7 @@ namespace MavenNet.Tests
 {
 	public class Test
 	{
-		const string GPS_LOCAL_REPO = "/Users/redth/Library/Developer/Xamarin/android-sdk-macosx/extras/google/m2repository/";
 		const string ANDROID_THINGS_URL_REPO = "https://google.bintray.com/androidthings";
-		const string GOOGLE_MAVEN_REPO = "https://dl.google.com/dl/android/maven2/";
-		const string CENTRAL_MAVEN_REPO = "http://repo1.maven.org/maven2/";
 
 		[Fact]
 		public async Task Test_Refresh_URL()
@@ -44,54 +41,17 @@ namespace MavenNet.Tests
 		}
 
 
-		//[Fact]
+		[Fact]
         public async Task Test_GroupIds_Project_URL_Maven()
         {
-            var repo = MavenRepository.FromUrl(CENTRAL_MAVEN_REPO);
+            var repo = MavenRepository.FromMavenCentral();
             await repo.Refresh("com.facebook.android");
 
 			var project = await repo.GetProjectAsync("com.facebook.android", "facebook-android-sdk", "4.33.0");
 
             Assert.True(project != null);
+            Assert.NotEmpty(project.Dependencies);
         }
-
-		//[Trait("Category", "LOCAL_ONLY")]
-		//[Fact]
-		//public async Task Test_Refresh_FILE()
-		//{
-		//	var repo = MavenRepository.FromDirectory(GPS_LOCAL_REPO);
-		//	await repo.Refresh();
-
-		//	Assert.True(repo.Groups.Any());
-		//}
-
-		//[Trait("Category", "LOCAL_ONLY")]
-		//[Fact]
-		//public async Task Test_Project_FILE()
-		//{
-		//	var repo = MavenRepository.FromDirectory(GPS_LOCAL_REPO);
-		//	await repo.Refresh();
-
-		//	var project = await repo.GetProjectAsync("com.google.android.gms", "play-services-basement", "10.2.0");
-
-		//	Assert.True(project != null);
-
-		//	Assert.True(project.Dependencies?.Any());
-		//}
-
-		//[Trait("Category", "LOCAL_ONLY")]
-		//[Fact]
-		//public async Task Test_GroupIds_Project_FILE()
-		//{
-		//	var repo = MavenRepository.FromDirectory(GPS_LOCAL_REPO);
-		//	await repo.Refresh("com.google.android.gms");
-
-		//	var project = await repo.GetProjectAsync("com.google.android.gms", "play-services-basement", "10.2.0");
-
-		//	Assert.True(project != null);
-
-		//	Assert.True(project.Dependencies?.Any());
-		//}
 
 		[Fact]
 		public async Task Test_Refresh_GOOGLE()
