@@ -41,7 +41,7 @@ namespace MavenNet
 
 		public override async Task<IEnumerable<string>> GetDirectoriesAsync(string path)
 		{
-			const string rxPattern = @"<a\s+href\s?=\s?""(?<dir>.*?)"".*?";
+			const string rxPattern = @"<a.*\s+href\s?=\s?""(?<dir>.*?)""";
 
 			var list = new List<string>();
 			//var html = htmlListingCache?[path] ?? await LoadTextFileAsync(path).ConfigureAwait (false);
@@ -51,7 +51,7 @@ namespace MavenNet
 
 			var html = await LoadTextFileAsync(path);
 
-			var matches = Regex.Matches(html, rxPattern, RegexOptions.Singleline);
+			var matches = Regex.Matches(html, rxPattern, RegexOptions.Multiline);
 
 			foreach (Match m in matches)
 			{
@@ -60,7 +60,7 @@ namespace MavenNet
 				if (string.IsNullOrEmpty(dir) || !dir.EndsWith ("/", StringComparison.OrdinalIgnoreCase))
 					continue;
 
-				list.Add(dir.Trim('/'));
+				list.Add(dir.Trim('/').Trim(':'));
 			}
 
 			return list;
@@ -68,7 +68,7 @@ namespace MavenNet
 
 		public override async Task<IEnumerable<string>> GetFilesAsync(string path)
 		{
-			const string rxPattern = @"<a\s+href\s?=\s?""(?<dir>.*?)"">";
+			const string rxPattern = @"<a.*\s+href\s?=\s?""(?<dir>.+?)""";
 
 			var list = new List<string>();
 			string html = null;

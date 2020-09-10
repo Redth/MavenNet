@@ -27,6 +27,7 @@ namespace MavenNet
 		protected override async Task<IEnumerable<Artifact>> GetArtifactsAsync(string groupId)
 		{
 			var artifacts = new List<Artifact>();
+			const string VERSION_REREX = "^\\d+";
 
 			var groupDir = CombinePaths(groupId.Split('.'));
 
@@ -36,7 +37,7 @@ namespace MavenNet
 				
 				var versions = await GetDirectoriesAsync(CombinePaths(groupDir, artifactDir)).ConfigureAwait(false);
 
-				if (!string.IsNullOrEmpty(artifactDir) && versions != null && versions.Any())
+				if (!string.IsNullOrEmpty(artifactDir) && versions != null && versions.Any(x => Regex.IsMatch(x, VERSION_REREX)))
 					artifacts.Add(new Artifact(artifactDir, groupId, versions.ToArray()));
 			}
 
@@ -53,20 +54,25 @@ namespace MavenNet
 				groupId = groupId.Substring(0, groupId.LastIndexOf('.'));
 
 			// See if this group was already detected and exit our recursion if so
-			if (!string.IsNullOrEmpty(groupId) && groupIds.Any(gid => gid.Equals(groupId, StringComparison.OrdinalIgnoreCase)))
-				return;
+			// if (string.IsNullOrEmpty(groupId)
+			// 	&& groupIds.Any(gid => gid.Equals(groupId, StringComparison.OrdinalIgnoreCase))
+			// 	)
+			// 	return;
 
 			// If we got this far, we aren't trying to process a duplicate group name, so continue looking for maven-metadata.xml
 			var files = await GetFilesAsync(path).ConfigureAwait(false);
 
 			// Look for maven-metadata.xml
-			var metadataItem = files?.FirstOrDefault(f => f.Equals("maven-metadata.xml", StringComparison.OrdinalIgnoreCase));
+			var metadataItem = files?.FirstOrDefault(f => f.Equals("maven-metadata.xml", StringComparison.OrdinalIgnoreCase)
+			|| f.Equals(":maven-metadata.xml", StringComparison.OrdinalIgnoreCase));
 
 			// If we found the maven-metadata.xml file, we are on an artifact folder
 			// We can stop recursing subdirs at this point since we found artifact info
 			if (!string.IsNullOrEmpty (metadataItem))
 			{
-				groupIds.Add(groupId);
+				if (!groupIds.Any(x => string.Equals(x, groupId, StringComparison.OrdinalIgnoreCase))) {
+					groupIds.Add(groupId);
+				}
 			}
 			else
 			{
