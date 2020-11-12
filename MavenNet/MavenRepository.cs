@@ -7,64 +7,70 @@ using MavenNet.Models;
 
 namespace MavenNet
 {
-	public abstract class MavenRepository : IMavenRepository
-	{
-		public static GoogleMavenRepository FromGoogle()
-		{
-			return new GoogleMavenRepository();
-		}
+    public abstract class MavenRepository : IMavenRepository
+    {
+        public static GoogleMavenRepository FromGoogle()
+        {
+            return new GoogleMavenRepository();
+        }
 
         public static MavenCentralRepository FromMavenCentral()
         {
             return new MavenCentralRepository();
         }
 
-		public static FileBasedMavenRepository FromUrl(string url)
-		{
-			return new UrlMavenRepository(url);
-		}
+        public static FileBasedMavenRepository FromUrl(string url)
+        {
+            return new UrlMavenRepository(url);
+        }
+        public static AzureDevOpsRepository FromAzureDevOps(string organization, string feed, string PAT)
+        {
+            return new AzureDevOpsRepository(organization, feed, PAT);
+        }
 
-		public static FileBasedMavenRepository FromDirectory(string directoryPath)
-		{
-			return new DirectoryMavenRepository(directoryPath);
-		}
+        public static FileBasedMavenRepository FromDirectory(string directoryPath)
+        {
+            return new DirectoryMavenRepository(directoryPath);
+        }
 
-		public IList<Group> Groups { get; private set; } = new List<Group>();
+        public IList<Group> Groups { get; private set; } = new List<Group>();
 
 
-		protected abstract char PathSeparator { get; }
+        protected abstract char PathSeparator { get; }
 
-		protected abstract Task<Stream> OpenFileAsync(string path);
-		protected abstract Task<IEnumerable<string>> GetGroupIdsAsync();
-		protected abstract Task<IEnumerable<Artifact>> GetArtifactsAsync(string groupId);
-		protected abstract string CombinePaths(params string[] parts);
+        protected abstract Task<Stream> OpenFileAsync(string path);
+        protected abstract Task<IEnumerable<string>> GetGroupIdsAsync();
+        protected abstract Task<IEnumerable<Artifact>> GetArtifactsAsync(string groupId);
+        protected abstract string CombinePaths(params string[] parts);
 
-		public virtual async Task Refresh()
-		{
-			var groupIds = await GetGroupIdsAsync().ConfigureAwait(false);
-			
-			await Refresh(groupIds.ToArray()); 
-		}
+        public virtual async Task Refresh()
+        {
+            var groupIds = await GetGroupIdsAsync().ConfigureAwait(false);
 
-		public virtual async Task Refresh (params string[] groupIds)
-		{
-			Groups.Clear();
+            await Refresh(groupIds.ToArray());
+        }
 
-			foreach (var groupId in groupIds) {
+        public virtual async Task Refresh(params string[] groupIds)
+        {
+            Groups.Clear();
 
-				var g = new Group(groupId);
+            foreach (var groupId in groupIds)
+            {
 
-				var artifacts = await GetArtifactsAsync(groupId).ConfigureAwait(false);
+                var g = new Group(groupId);
 
-				// Set a reference to this repository implementation
-				foreach (var a in artifacts) {
-					a.Repository = this;
-					g.Artifacts.Add(a);
-				}
-					
-				Groups.Add(g);
-			}
-		}
+                var artifacts = await GetArtifactsAsync(groupId).ConfigureAwait(false);
+
+                // Set a reference to this repository implementation
+                foreach (var a in artifacts)
+                {
+                    a.Repository = this;
+                    g.Artifacts.Add(a);
+                }
+
+                Groups.Add(g);
+            }
+        }
 
         public virtual Task Refresh(params Group[] groups)
         {
@@ -81,55 +87,55 @@ namespace MavenNet
             return Task.CompletedTask;
         }
 
-		public Task<Stream> OpenArtifactPomFile (string groupId, string artifactId, string version)
-		{
-			var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, version, artifactId + "-" + version + ".pom");
+        public virtual Task<Stream> OpenArtifactPomFile(string groupId, string artifactId, string version)
+        {
+            var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, version, artifactId + "-" + version + ".pom");
 
-			return OpenFileAsync(path);
-		}
+            return OpenFileAsync(path);
+        }
 
-		public Task<Stream> OpenArtifactLibraryFile(string groupId, string artifactId, string version, string packaging = "jar")
-		{
-			var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, version, artifactId + "-" + version + "." + packaging.ToLowerInvariant().TrimStart('.'));
+        public virtual Task<Stream> OpenArtifactLibraryFile(string groupId, string artifactId, string version, string packaging = "jar")
+        {
+            var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, version, artifactId + "-" + version + "." + packaging.ToLowerInvariant().TrimStart('.'));
 
-			return OpenFileAsync(path);
-		}
+            return OpenFileAsync(path);
+        }
 
-        public Task<Stream> OpenArtifactSourcesFile(string groupId, string artifactId, string version, string sourcesPostfix = "sources", string sourcesExtension = "jar")
+        public virtual Task<Stream> OpenArtifactSourcesFile(string groupId, string artifactId, string version, string sourcesPostfix = "sources", string sourcesExtension = "jar")
         {
             var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, version, artifactId + "-" + version + $"-{sourcesPostfix}.{sourcesExtension.TrimStart('.')}");
 
             return OpenFileAsync(path);
         }
 
-		public Task<Stream> OpenMavenMetadataFile(string groupId, string artifactId)
-		{
-			var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, "maven-metadata.xml");
+        public Task<Stream> OpenMavenMetadataFile(string groupId, string artifactId)
+        {
+            var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, "maven-metadata.xml");
 
-			return OpenFileAsync(path);
-		}
+            return OpenFileAsync(path);
+        }
 
-		public Task<Project> GetProjectAsync(string groupId, string artifactId)
-		{
-			return GetProjectAsync(groupId, artifactId, null);
-		}
+        public Task<Project> GetProjectAsync(string groupId, string artifactId)
+        {
+            return GetProjectAsync(groupId, artifactId, null);
+        }
 
-		public async Task<Project> GetProjectAsync(string groupId, string artifactId, string version)
-		{
-			var group = Groups?.FirstOrDefault(g => g.Id == groupId);
-			if (group == null)
-				throw new KeyNotFoundException($"No group found for groupId: `{groupId}`");
+        public async Task<Project> GetProjectAsync(string groupId, string artifactId, string version)
+        {
+            var group = Groups?.FirstOrDefault(g => g.Id == groupId);
+            if (group == null)
+                throw new KeyNotFoundException($"No group found for groupId: `{groupId}`");
 
-			var artifact = group.Artifacts?.FirstOrDefault(a => a.Id == artifactId);
-			if (artifact == null)
-				throw new KeyNotFoundException($"No artifact found for artifactId: `{artifactId}`");
-			
-			var hasVersion = artifact.Versions?.Any(v => v == version) ?? false;
+            var artifact = group.Artifacts?.FirstOrDefault(a => a.Id == artifactId);
+            if (artifact == null)
+                throw new KeyNotFoundException($"No artifact found for artifactId: `{artifactId}`");
 
-			if (!hasVersion)
-				throw new KeyNotFoundException($"No version for artifact `{artifactId}` with version: `{version}`");
+            var hasVersion = artifact.Versions?.Any(v => v == version) ?? false;
 
-			return PomParser.Parse(await artifact.OpenPomFile(version).ConfigureAwait(false));
-		}
-	}
+            if (!hasVersion)
+                throw new KeyNotFoundException($"No version for artifact `{artifactId}` with version: `{version}`");
+
+            return PomParser.Parse(await artifact.OpenPomFile(version).ConfigureAwait(false));
+        }
+    }
 }
