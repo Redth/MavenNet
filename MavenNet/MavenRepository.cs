@@ -56,20 +56,19 @@ namespace MavenNet
 
             foreach (var groupId in groupIds)
             {
+
+                var g = new Group(groupId);
+
                 var artifacts = await GetArtifactsAsync(groupId).ConfigureAwait(false);
 
                 // Set a reference to this repository implementation
-                foreach (var groupedGroupIds in artifacts.GroupBy(q => q.GroupId))
+                foreach (var a in artifacts)
                 {
-                    var g = new Group(groupedGroupIds.Key);
-                    foreach (var a in groupedGroupIds)
-                    {
-                        a.Repository = this;
-                        g.Artifacts.Add(a);
-                    }
-                    Groups.Add(g);
+                    a.Repository = this;
+                    g.Artifacts.Add(a);
                 }
 
+                Groups.Add(g);
             }
         }
 

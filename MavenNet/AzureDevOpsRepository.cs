@@ -58,6 +58,9 @@ namespace MavenNet
 
             foreach (var package in packages.value)
             {
+                if (!package.groupId.Equals(groupId, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
                 artifacts.Add(new Artifact(
                     package.artifactId,
                     package.groupId,
