@@ -56,19 +56,20 @@ namespace MavenNet
 
             foreach (var groupId in groupIds)
             {
-
-                var g = new Group(groupId);
-
                 var artifacts = await GetArtifactsAsync(groupId).ConfigureAwait(false);
 
                 // Set a reference to this repository implementation
-                foreach (var a in artifacts)
+                foreach (var groupedGroupIds in artifacts.GroupBy(q => q.GroupId))
                 {
-                    a.Repository = this;
-                    g.Artifacts.Add(a);
+                    var g = new Group(groupedGroupIds.Key);
+                    foreach (var a in groupedGroupIds)
+                    {
+                        a.Repository = this;
+                        g.Artifacts.Add(a);
+                    }
+                    Groups.Add(g);
                 }
 
-                Groups.Add(g);
             }
         }
 
@@ -126,7 +127,7 @@ namespace MavenNet
             if (group == null)
                 throw new KeyNotFoundException($"No group found for groupId: `{groupId}`");
 
-            var artifact = group.Artifacts?.FirstOrDefault(a => a.GroupId == groupId && a.Id == artifactId);
+            var artifact = group.Artifacts?.FirstOrDefault(a => a.Id == artifactId);
             if (artifact == null)
                 throw new KeyNotFoundException($"No artifact found for artifactId: `{artifactId}`");
 
