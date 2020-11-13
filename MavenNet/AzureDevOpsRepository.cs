@@ -17,6 +17,7 @@ namespace MavenNet
         private readonly HttpClient _http;
         private readonly string _apiVersion= "api-version=6.0-preview.1";
         private readonly string _protocolType = "protocolType=maven";
+        private readonly string _includeAllVersions = "includeAllVersions=true";
         private readonly Uri _pkgsUri;
 
         public AzureDevOpsRepository(string url)
@@ -50,7 +51,7 @@ namespace MavenNet
 
             var uriBuilder = new UriBuilder(BaseUri);
             uriBuilder.Path += "/packages";
-            uriBuilder.Query += $"{_apiVersion}&{_protocolType}&packageNameQuery={groupId}";
+            uriBuilder.Query += $"{_apiVersion}&{_protocolType}&{_includeAllVersions}&packageNameQuery={groupId}";
 
             var result = await _http.GetStringAsync(uriBuilder.Uri);
             var packages = JsonConvert.DeserializeObject<Models.DevOps.Packages>(result);
