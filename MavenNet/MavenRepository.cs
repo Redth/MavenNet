@@ -126,7 +126,7 @@ namespace MavenNet
             if (group == null)
                 throw new KeyNotFoundException($"No group found for groupId: `{groupId}`");
 
-            var artifact = group.Artifacts?.FirstOrDefault(a => a.Id == artifactId);
+            var artifact = group.Artifacts?.FirstOrDefault(a => a.GroupId == groupId && a.Id == artifactId);
             if (artifact == null)
                 throw new KeyNotFoundException($"No artifact found for artifactId: `{artifactId}`");
 
