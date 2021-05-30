@@ -102,6 +102,13 @@ namespace MavenNet
             return OpenFileAsync(path);
         }
 
+		public Task<Stream> OpenArtifactDocsFile(string groupId, string artifactId, string version, string sourcesPostfix = "javadoc", string sourcesExtension = "jar")
+		{
+			var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, version, artifactId + "-" + version + $"-{sourcesPostfix}.{sourcesExtension.TrimStart('.')}");
+
+			return OpenFileAsync(path);
+		}
+
 		public Task<Stream> OpenMavenMetadataFile(string groupId, string artifactId)
 		{
 			var path = CombinePaths(CombinePaths(groupId.Split('.')), artifactId, "maven-metadata.xml");
