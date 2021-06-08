@@ -42,16 +42,16 @@ namespace MavenNet.Tests
 
 
 		[Fact]
-        public async Task Test_GroupIds_Project_URL_Maven()
-        {
-            var repo = MavenRepository.FromMavenCentral();
-            await repo.Refresh("com.facebook.android");
+		public async Task Test_GroupIds_Project_URL_Maven()
+		{
+			var repo = MavenRepository.FromMavenCentral();
+			await repo.Refresh("com.facebook.android");
 
 			var project = await repo.GetProjectAsync("com.facebook.android", "facebook-android-sdk", "4.33.0");
 
-            Assert.True(project != null);
-            Assert.NotEmpty(project.Dependencies);
-        }
+			Assert.True(project != null);
+			Assert.NotEmpty(project.Dependencies);
+		}
 
 		[Fact]
 		public async Task Test_Refresh_GOOGLE()
@@ -82,6 +82,19 @@ namespace MavenNet.Tests
 			await repo.Refresh("com.google.android.gms");
 
 			var project = await repo.GetProjectAsync("com.google.android.gms", "play-services-basement", "10.2.0");
+
+			Assert.True(project != null);
+
+			Assert.True(project.Dependencies?.Any());
+		}
+
+		[Fact]
+		public async Task Test_GroupIds_Project_MAVENCENTRAL()
+		{
+			var repo = MavenRepository.FromMavenCentral();
+			await repo.Refresh("org.bouncycastle");
+
+			var project = await repo.GetProjectAsync("org.bouncycastle", "bcpkix-jdk15on", "1.57");
 
 			Assert.True(project != null);
 
