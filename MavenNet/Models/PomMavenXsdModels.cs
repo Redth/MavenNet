@@ -34,9 +34,9 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Project", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Project")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlRootAttribute("project", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlRootAttribute("project")]
     public partial class Project
     {
         
@@ -44,7 +44,7 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>Declares to which version of project descriptor this POM conforms.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("modelVersion", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("modelVersion", DataType="string")]
         public string ModelVersion { get; set; }
         
         /// <summary>
@@ -53,7 +53,7 @@ namespace MavenNet.Models
 ///            project will be the default for this project if they are left unspecified. The location
 ///            is given as a group ID, artifact ID and version.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("parent", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("parent")]
         public Parent Parent { get; set; }
         
         /// <summary>
@@ -66,7 +66,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("groupId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("groupId", DataType="string")]
         public string GroupId { get; set; }
         
         /// <summary>
@@ -76,14 +76,14 @@ namespace MavenNet.Models
 ///            Examples of artifacts produced by Maven for a project include: JARs, source and binary
 ///            distributions, and WARs.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("artifactId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("artifactId", DataType="string")]
         public string ArtifactId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The current version of the artifact produced by this project.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("version", DataType="string")]
         public string Version { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -104,7 +104,7 @@ namespace MavenNet.Models
 ///          </para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("jar")]
-        [System.Xml.Serialization.XmlElementAttribute("packaging", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("packaging", DataType="string")]
         public string Packaging
         {
             get
@@ -121,7 +121,7 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>The full name of the project.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
@@ -132,7 +132,7 @@ namespace MavenNet.Models
 ///            plain text representation. If you need to modify the index page of the generated web
 ///            site, you are able to specify your own instead of adjusting this text.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("description", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("description", DataType="string")]
         public string Description { get; set; }
         
         /// <summary>
@@ -144,7 +144,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
         
         /// <summary>
@@ -152,7 +152,7 @@ namespace MavenNet.Models
         /// <para>The year of the project's inception, specified with 4 digits. This value is
 ///            used when generating copyright notices as well as being informational.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("inceptionYear", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("inceptionYear", DataType="string")]
         public string InceptionYear { get; set; }
         
         /// <summary>
@@ -161,7 +161,7 @@ namespace MavenNet.Models
 ///            project belongs. These attributes are utilized when documentation is created (for
 ///            copyright notices and links).</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("organization", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("organization")]
         public Organization Organization { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -181,8 +181,8 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("licenses", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("license", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("licenses")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("license")]
         public System.Collections.Generic.List<License> Licenses
         {
             get
@@ -228,8 +228,8 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>Describes the committers of a project.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("developers", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("developer", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("developers")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("developer")]
         public System.Collections.Generic.List<Developer> Developers
         {
             get
@@ -258,8 +258,8 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>Describes the contributors to a project that are not yet committers.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("contributors", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("contributor", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("contributors")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("contributor")]
         public System.Collections.Generic.List<Contributor> Contributors
         {
             get
@@ -288,8 +288,8 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>Contains information about a project's mailing lists.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("mailingLists", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("mailingList", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("mailingLists")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("mailingList")]
         public System.Collections.Generic.List<MailingList> MailingLists
         {
             get
@@ -315,7 +315,7 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>Describes the prerequisites in the build environment for this project.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("prerequisites", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("prerequisites")]
         public Prerequisites Prerequisites { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -328,8 +328,8 @@ namespace MavenNet.Models
 ///            To be consistent with the way default urls are calculated from parent, it is recommended
 ///            to have module names match artifact ids.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("modules", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("module", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("modules")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("module", DataType="string")]
         public System.Collections.Generic.List<string> Modules
         {
             get
@@ -355,21 +355,21 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>Specification for the SCM used by the project, such as CVS, Subversion, etc.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("scm", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("scm")]
         public Scm Scm { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The project's issue management system information.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("issueManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("issueManagement")]
         public IssueManagement IssueManagement { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The project's continuous integration information.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("ciManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("ciManagement")]
         public CiManagement CiManagement { get; set; }
         
         /// <summary>
@@ -377,7 +377,7 @@ namespace MavenNet.Models
         /// <para>Distribution information for a project that enables deployment of the site
 ///            and artifacts to remote web servers and repositories respectively.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("distributionManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("distributionManagement")]
         public DistributionManagement DistributionManagement { get; set; }
         
         /// <summary>
@@ -390,7 +390,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("properties", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("properties")]
         public ModelProperties Properties { get; set; }
         
         /// <summary>
@@ -401,7 +401,7 @@ namespace MavenNet.Models
 ///            version and other values from this section are used for that dependency if they were not
 ///            already specified.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("dependencyManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("dependencyManagement")]
         public DependencyManagement DependencyManagement { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -421,8 +421,8 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("dependencies", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("dependency", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("dependencies")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("dependency")]
         public System.Collections.Generic.List<Dependency> Dependencies
         {
             get
@@ -452,8 +452,8 @@ namespace MavenNet.Models
         /// <para>The lists of the remote repositories for discovering dependencies and
 ///            extensions.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("repositories", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("repository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("repositories")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("repository")]
         public System.Collections.Generic.List<Repository> Repositories
         {
             get
@@ -483,8 +483,8 @@ namespace MavenNet.Models
         /// <para>The lists of the remote repositories for discovering plugins for builds and
 ///            reports.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("pluginRepositories", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("pluginRepository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("pluginRepositories")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("pluginRepository")]
         public System.Collections.Generic.List<Repository> PluginRepositories
         {
             get
@@ -510,7 +510,7 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>Information required to build the project.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("build", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("build")]
         public Build Build { get; set; }
         
         /// <summary>
@@ -521,7 +521,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("reports", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("reports")]
         public ModelReports Reports { get; set; }
         
         /// <summary>
@@ -535,7 +535,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("reporting", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("reporting")]
         public Reporting Reporting { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -546,8 +546,8 @@ namespace MavenNet.Models
         /// <para>A listing of project-local build profiles which will modify the build process
 ///            when activated.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("profiles", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("profile", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("profiles")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("profile")]
         public System.Collections.Generic.List<Profile> Profiles
         {
             get
@@ -581,7 +581,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Parent", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Parent")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Parent
     {
@@ -590,21 +590,21 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The group id of the parent project to inherit from.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("groupId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("groupId", DataType="string")]
         public string GroupId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The artifact id of the parent project to inherit from.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("artifactId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("artifactId", DataType="string")]
         public string ArtifactId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The version of the parent project to inherit.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("version", DataType="string")]
         public string Version { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -629,7 +629,7 @@ namespace MavenNet.Models
 ///          </para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("../pom.xml")]
-        [System.Xml.Serialization.XmlElementAttribute("relativePath", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("relativePath", DataType="string")]
         public string RelativePath
         {
             get
@@ -648,7 +648,7 @@ namespace MavenNet.Models
     /// <para>Specifies the organization that produces this project.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Organization", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Organization")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Organization
     {
@@ -657,21 +657,21 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>The full name of the organization.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The URL to the organization's home page.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelLicenses", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelLicenses", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelLicenses
     {
@@ -681,7 +681,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("license", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("license")]
         public System.Collections.Generic.List<License> License
         {
             get
@@ -721,7 +721,7 @@ namespace MavenNet.Models
 ///        of dependencies.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("License", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("License")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class License
     {
@@ -730,14 +730,14 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>The full legal name of the license.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The official url for the license text.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
         
         /// <summary>
@@ -754,21 +754,21 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("distribution", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("distribution", DataType="string")]
         public string Distribution { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>Addendum information pertaining to this license.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("comments", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("comments", DataType="string")]
         public string Comments { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelDevelopers", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelDevelopers", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelDevelopers
     {
@@ -778,7 +778,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("developer", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("developer")]
         public System.Collections.Generic.List<Developer> Developer
         {
             get
@@ -815,7 +815,7 @@ namespace MavenNet.Models
     /// <para>Information about one of the committers on this project.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Developer", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Developer")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Developer
     {
@@ -824,42 +824,42 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>The unique ID of the developer in the SCM.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("id", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("id", DataType="string")]
         public string Id { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The full name of the contributor.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The email address of the contributor.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("email", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("email", DataType="string")]
         public string Email { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The URL for the homepage of the contributor.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The organization to which the contributor belongs.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("organization", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("organization", DataType="string")]
         public string Organization { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The URL of the organization.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("organizationUrl", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("organizationUrl", DataType="string")]
         public string OrganizationUrl { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -875,8 +875,8 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("roles", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("role", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("roles")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("role", DataType="string")]
         public System.Collections.Generic.List<string> Roles
         {
             get
@@ -917,21 +917,21 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("timezone", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("timezone", DataType="string")]
         public string Timezone { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>Properties about the contributor, such as an instant messenger handle.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("properties", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("properties")]
         public DeveloperProperties Properties { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("DeveloperRoles", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("DeveloperRoles", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class DeveloperRoles
     {
@@ -941,7 +941,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("role", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("role", DataType="string")]
         public System.Collections.Generic.List<string> Role
         {
             get
@@ -976,7 +976,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("DeveloperProperties", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("DeveloperProperties", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class DeveloperProperties
     {
@@ -1021,7 +1021,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelContributors", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelContributors", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelContributors
     {
@@ -1031,7 +1031,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("contributor", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("contributor")]
         public System.Collections.Generic.List<Contributor> Contributor
         {
             get
@@ -1069,7 +1069,7 @@ namespace MavenNet.Models
 ///        commit privileges. Usually, these contributions come in the form of patches submitted.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Contributor", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Contributor")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Contributor
     {
@@ -1078,35 +1078,35 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>The full name of the contributor.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The email address of the contributor.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("email", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("email", DataType="string")]
         public string Email { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The URL for the homepage of the contributor.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The organization to which the contributor belongs.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("organization", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("organization", DataType="string")]
         public string Organization { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The URL of the organization.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("organizationUrl", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("organizationUrl", DataType="string")]
         public string OrganizationUrl { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -1122,8 +1122,8 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("roles", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("role", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("roles")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("role", DataType="string")]
         public System.Collections.Generic.List<string> Roles
         {
             get
@@ -1164,21 +1164,21 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("timezone", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("timezone", DataType="string")]
         public string Timezone { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>Properties about the contributor, such as an instant messenger handle.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("properties", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("properties")]
         public ContributorProperties Properties { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ContributorRoles", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ContributorRoles", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ContributorRoles
     {
@@ -1188,7 +1188,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("role", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("role", DataType="string")]
         public System.Collections.Generic.List<string> Role
         {
             get
@@ -1223,7 +1223,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ContributorProperties", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ContributorProperties", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ContributorProperties
     {
@@ -1268,7 +1268,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelMailingLists", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelMailingLists", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelMailingLists
     {
@@ -1278,7 +1278,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("mailingList", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("mailingList")]
         public System.Collections.Generic.List<MailingList> MailingList
         {
             get
@@ -1316,7 +1316,7 @@ namespace MavenNet.Models
 ///        auto-generated site references this information.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("MailingList", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("MailingList")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class MailingList
     {
@@ -1329,7 +1329,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
@@ -1343,7 +1343,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("subscribe", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("subscribe", DataType="string")]
         public string Subscribe { get; set; }
         
         /// <summary>
@@ -1357,7 +1357,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("unsubscribe", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("unsubscribe", DataType="string")]
         public string Unsubscribe { get; set; }
         
         /// <summary>
@@ -1371,14 +1371,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("post", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("post", DataType="string")]
         public string Post { get; set; }
         
         /// <summary>
         /// <para>3.0.0+</para>
         /// <para>The link to a URL where you can browse the mailing list archive.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("archive", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("archive", DataType="string")]
         public string Archive { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -1388,8 +1388,8 @@ namespace MavenNet.Models
         /// <para>3.0.0+</para>
         /// <para>The link to alternate URLs where you can browse the list archive.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("otherArchives", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("otherArchive", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("otherArchives")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("otherArchive", DataType="string")]
         public System.Collections.Generic.List<string> OtherArchives
         {
             get
@@ -1424,7 +1424,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("MailingListOtherArchives", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("MailingListOtherArchives", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class MailingListOtherArchives
     {
@@ -1434,7 +1434,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("otherArchive", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("otherArchive", DataType="string")]
         public System.Collections.Generic.List<string> OtherArchive
         {
             get
@@ -1471,7 +1471,7 @@ namespace MavenNet.Models
     /// <para>Describes the prerequisites a project can have.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Prerequisites", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Prerequisites")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Prerequisites
     {
@@ -1492,7 +1492,7 @@ namespace MavenNet.Models
 ///          </para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("2.0")]
-        [System.Xml.Serialization.XmlElementAttribute("maven", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("maven", DataType="string")]
         public string Maven
         {
             get
@@ -1509,7 +1509,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelModules", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelModules", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelModules
     {
@@ -1519,7 +1519,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("module", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("module", DataType="string")]
         public System.Collections.Generic.List<string> Module
         {
             get
@@ -1561,7 +1561,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Scm", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Scm")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Scm
     {
@@ -1580,7 +1580,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("connection", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("connection", DataType="string")]
         public string Connection { get; set; }
         
         /// <summary>
@@ -1593,7 +1593,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("developerConnection", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("developerConnection", DataType="string")]
         public string DeveloperConnection { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -1604,7 +1604,7 @@ namespace MavenNet.Models
         /// <para>The tag of current code. By default, it's set to HEAD during development.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("HEAD")]
-        [System.Xml.Serialization.XmlElementAttribute("tag", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("tag", DataType="string")]
         public string Tag
         {
             get
@@ -1626,7 +1626,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
     }
     
@@ -1636,7 +1636,7 @@ namespace MavenNet.Models
 ///        project.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("IssueManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("IssueManagement")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class IssueManagement
     {
@@ -1645,14 +1645,14 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The name of the issue management system, e.g. Bugzilla</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("system", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("system", DataType="string")]
         public string System { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>URL for the issue management system used by the project.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
     }
     
@@ -1666,7 +1666,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("CiManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("CiManagement")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class CiManagement
     {
@@ -1679,7 +1679,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("system", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("system", DataType="string")]
         public string System { get; set; }
         
         /// <summary>
@@ -1687,7 +1687,7 @@ namespace MavenNet.Models
         /// <para>URL for the continuous integration system used by the project if it has a web
 ///            interface.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -1698,8 +1698,8 @@ namespace MavenNet.Models
         /// <para>Configuration for notifying developers/users when a build is unsuccessful,
 ///            including user information and notification mode.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("notifiers", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("notifier", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("notifiers")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("notifier")]
         public System.Collections.Generic.List<Notifier> Notifiers
         {
             get
@@ -1734,7 +1734,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("CiManagementNotifiers", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("CiManagementNotifiers", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class CiManagementNotifiers
     {
@@ -1744,7 +1744,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("notifier", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("notifier")]
         public System.Collections.Generic.List<Notifier> Notifier
         {
             get
@@ -1781,7 +1781,7 @@ namespace MavenNet.Models
     /// <para>Configures one method for notifying users/developers when a build breaks.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Notifier", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Notifier")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Notifier
     {
@@ -1794,7 +1794,7 @@ namespace MavenNet.Models
         /// <para>The mechanism used to deliver notifications.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("mail")]
-        [System.Xml.Serialization.XmlElementAttribute("type", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("type", DataType="string")]
         public string Type
         {
             get
@@ -1815,7 +1815,7 @@ namespace MavenNet.Models
         /// <para>Whether to send notifications on error.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute(true)]
-        [System.Xml.Serialization.XmlElementAttribute("sendOnError", Namespace="http://maven.apache.org/POM/4.0.0", DataType="boolean")]
+        [System.Xml.Serialization.XmlElementAttribute("sendOnError", DataType="boolean")]
         public bool SendOnError
         {
             get
@@ -1836,7 +1836,7 @@ namespace MavenNet.Models
         /// <para>Whether to send notifications on failure.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute(true)]
-        [System.Xml.Serialization.XmlElementAttribute("sendOnFailure", Namespace="http://maven.apache.org/POM/4.0.0", DataType="boolean")]
+        [System.Xml.Serialization.XmlElementAttribute("sendOnFailure", DataType="boolean")]
         public bool SendOnFailure
         {
             get
@@ -1857,7 +1857,7 @@ namespace MavenNet.Models
         /// <para>Whether to send notifications on success.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute(true)]
-        [System.Xml.Serialization.XmlElementAttribute("sendOnSuccess", Namespace="http://maven.apache.org/POM/4.0.0", DataType="boolean")]
+        [System.Xml.Serialization.XmlElementAttribute("sendOnSuccess", DataType="boolean")]
         public bool SendOnSuccess
         {
             get
@@ -1878,7 +1878,7 @@ namespace MavenNet.Models
         /// <para>Whether to send notifications on warning.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute(true)]
-        [System.Xml.Serialization.XmlElementAttribute("sendOnWarning", Namespace="http://maven.apache.org/POM/4.0.0", DataType="boolean")]
+        [System.Xml.Serialization.XmlElementAttribute("sendOnWarning", DataType="boolean")]
         public bool SendOnWarning
         {
             get
@@ -1899,21 +1899,21 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("address", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("address", DataType="string")]
         public string Address { get; set; }
         
         /// <summary>
         /// <para>0.0.0+</para>
         /// <para>Extended configuration specific to this notifier goes here.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("configuration", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("configuration")]
         public NotifierConfiguration Configuration { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("NotifierConfiguration", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("NotifierConfiguration", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class NotifierConfiguration
     {
@@ -1961,7 +1961,7 @@ namespace MavenNet.Models
 ///        primarily used for deployment of artifacts and the site produced by the build.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("DistributionManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("DistributionManagement")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class DistributionManagement
     {
@@ -1971,7 +1971,7 @@ namespace MavenNet.Models
         /// <para>Information needed to deploy the artifacts generated by the project to a
 ///            remote repository.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("repository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("repository")]
         public DeploymentRepository Repository { get; set; }
         
         /// <summary>
@@ -1983,14 +1983,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("snapshotRepository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("snapshotRepository")]
         public DeploymentRepository SnapshotRepository { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>Information needed for deploying the web site of the project.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("site", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("site")]
         public Site Site { get; set; }
         
         /// <summary>
@@ -2004,7 +2004,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("downloadUrl", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("downloadUrl", DataType="string")]
         public string DownloadUrl { get; set; }
         
         /// <summary>
@@ -2012,7 +2012,7 @@ namespace MavenNet.Models
         /// <para>Relocation information of the artifact if it has been moved to a new group ID
 ///            and/or artifact ID.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("relocation", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("relocation")]
         public Relocation Relocation { get; set; }
         
         /// <summary>
@@ -2029,7 +2029,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("status", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("status", DataType="string")]
         public string Status { get; set; }
     }
     
@@ -2039,7 +2039,7 @@ namespace MavenNet.Models
 ///        repository.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("DeploymentRepository", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("DeploymentRepository")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class DeploymentRepository
     {
@@ -2053,7 +2053,7 @@ namespace MavenNet.Models
 ///            build number, or to use the same version each time</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute(true)]
-        [System.Xml.Serialization.XmlElementAttribute("uniqueVersion", Namespace="http://maven.apache.org/POM/4.0.0", DataType="boolean")]
+        [System.Xml.Serialization.XmlElementAttribute("uniqueVersion", DataType="boolean")]
         public bool UniqueVersion
         {
             get
@@ -2070,14 +2070,14 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>How to handle downloading of releases from this repository.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("releases", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("releases")]
         public RepositoryPolicy Releases { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>How to handle downloading of snapshots from this repository.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("snapshots", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("snapshots")]
         public RepositoryPolicy Snapshots { get; set; }
         
         /// <summary>
@@ -2090,14 +2090,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("id", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("id", DataType="string")]
         public string Id { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>Human readable name of the repository.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
@@ -2108,7 +2108,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -2124,7 +2124,7 @@ namespace MavenNet.Models
 ///          </para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("default")]
-        [System.Xml.Serialization.XmlElementAttribute("layout", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("layout", DataType="string")]
         public string Layout
         {
             get
@@ -2143,7 +2143,7 @@ namespace MavenNet.Models
     /// <para>Download policy.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("RepositoryPolicy", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("RepositoryPolicy")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class RepositoryPolicy
     {
@@ -2158,7 +2158,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("enabled", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("enabled", DataType="string")]
         public string Enabled { get; set; }
         
         /// <summary>
@@ -2176,7 +2176,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("updatePolicy", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("updatePolicy", DataType="string")]
         public string UpdatePolicy { get; set; }
         
         /// <summary>
@@ -2193,7 +2193,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("checksumPolicy", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("checksumPolicy", DataType="string")]
         public string ChecksumPolicy { get; set; }
     }
     
@@ -2202,7 +2202,7 @@ namespace MavenNet.Models
     /// <para>Contains the information needed for deploying websites.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Site", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Site")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Site
     {
@@ -2216,14 +2216,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("id", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("id", DataType="string")]
         public string Id { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>Human readable name of the deployment location.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
@@ -2235,7 +2235,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
     }
     
@@ -2245,7 +2245,7 @@ namespace MavenNet.Models
 ///        assumed to be the same as it was before.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Relocation", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Relocation")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Relocation
     {
@@ -2254,35 +2254,35 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The group ID the artifact has moved to.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("groupId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("groupId", DataType="string")]
         public string GroupId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The new artifact ID of the artifact.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("artifactId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("artifactId", DataType="string")]
         public string ArtifactId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The new version of the artifact.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("version", DataType="string")]
         public string Version { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>An additional message to show the user about the move, such as the reason.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("message", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("message", DataType="string")]
         public string Message { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelProperties", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelProperties", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelProperties
     {
@@ -2330,7 +2330,7 @@ namespace MavenNet.Models
 ///        POMs.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("DependencyManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("DependencyManagement")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class DependencyManagement
     {
@@ -2344,8 +2344,8 @@ namespace MavenNet.Models
 ///            POM within the group. This allows the specification of a "standard" version for a
 ///            particular dependency.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("dependencies", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("dependency", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("dependencies")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("dependency")]
         public System.Collections.Generic.List<Dependency> Dependencies
         {
             get
@@ -2380,7 +2380,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("DependencyManagementDependencies", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("DependencyManagementDependencies", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class DependencyManagementDependencies
     {
@@ -2390,7 +2390,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("dependency", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("dependency")]
         public System.Collections.Generic.List<Dependency> Dependency
         {
             get
@@ -2432,7 +2432,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Dependency", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Dependency")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Dependency
     {
@@ -2446,7 +2446,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("groupId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("groupId", DataType="string")]
         public string GroupId { get; set; }
         
         /// <summary>
@@ -2458,7 +2458,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("artifactId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("artifactId", DataType="string")]
         public string ArtifactId { get; set; }
         
         /// <summary>
@@ -2470,7 +2470,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("version", DataType="string")]
         public string Version { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -2495,7 +2495,7 @@ namespace MavenNet.Models
 ///          </para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("jar")]
-        [System.Xml.Serialization.XmlElementAttribute("type", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("type", DataType="string")]
         public string Type
         {
             get
@@ -2524,7 +2524,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("classifier", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("classifier", DataType="string")]
         public string Classifier { get; set; }
         
         /// <summary>
@@ -2541,7 +2541,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("scope", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("scope", DataType="string")]
         public string Scope { get; set; }
         
         /// <summary>
@@ -2557,7 +2557,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("systemPath", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("systemPath", DataType="string")]
         public string SystemPath { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -2568,8 +2568,8 @@ namespace MavenNet.Models
         /// <para>Lists a set of artifacts that should be excluded from this dependency's
 ///            artifact list when it comes to calculating transitive dependencies.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("exclusions", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("exclusion", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("exclusions")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("exclusion")]
         public System.Collections.Generic.List<Exclusion> Exclusions
         {
             get
@@ -2612,14 +2612,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("optional", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("optional", DataType="string")]
         public string Optional { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("DependencyExclusions", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("DependencyExclusions", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class DependencyExclusions
     {
@@ -2629,7 +2629,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("exclusion", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("exclusion")]
         public System.Collections.Generic.List<Exclusion> Exclusion
         {
             get
@@ -2671,7 +2671,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Exclusion", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Exclusion")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Exclusion
     {
@@ -2680,21 +2680,21 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The artifact ID of the project to exclude.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("artifactId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("artifactId", DataType="string")]
         public string ArtifactId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The group ID of the project to exclude.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("groupId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("groupId", DataType="string")]
         public string GroupId { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelDependencies", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelDependencies", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelDependencies
     {
@@ -2704,7 +2704,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("dependency", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("dependency")]
         public System.Collections.Generic.List<Dependency> Dependency
         {
             get
@@ -2739,7 +2739,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelRepositories", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelRepositories", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelRepositories
     {
@@ -2749,7 +2749,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("repository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("repository")]
         public System.Collections.Generic.List<Repository> Repository
         {
             get
@@ -2787,7 +2787,7 @@ namespace MavenNet.Models
 ///        remote repository.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Repository", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Repository")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Repository
     {
@@ -2796,14 +2796,14 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>How to handle downloading of releases from this repository.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("releases", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("releases")]
         public RepositoryPolicy Releases { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>How to handle downloading of snapshots from this repository.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("snapshots", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("snapshots")]
         public RepositoryPolicy Snapshots { get; set; }
         
         /// <summary>
@@ -2816,14 +2816,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("id", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("id", DataType="string")]
         public string Id { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>Human readable name of the repository.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
@@ -2834,7 +2834,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("url", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("url", DataType="string")]
         public string Url { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -2850,7 +2850,7 @@ namespace MavenNet.Models
 ///          </para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("default")]
-        [System.Xml.Serialization.XmlElementAttribute("layout", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("layout", DataType="string")]
         public string Layout
         {
             get
@@ -2867,7 +2867,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelPluginRepositories", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelPluginRepositories", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelPluginRepositories
     {
@@ -2877,7 +2877,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("pluginRepository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("pluginRepository")]
         public System.Collections.Generic.List<Repository> PluginRepository
         {
             get
@@ -2919,7 +2919,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Build", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Build")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Build
     {
@@ -2933,7 +2933,7 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;src/main/java&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("sourceDirectory", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("sourceDirectory", DataType="string")]
         public string SourceDirectory { get; set; }
         
         /// <summary>
@@ -2946,7 +2946,7 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;src/main/scripts&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("scriptSourceDirectory", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("scriptSourceDirectory", DataType="string")]
         public string ScriptSourceDirectory { get; set; }
         
         /// <summary>
@@ -2958,7 +2958,7 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;src/test/java&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("testSourceDirectory", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("testSourceDirectory", DataType="string")]
         public string TestSourceDirectory { get; set; }
         
         /// <summary>
@@ -2968,7 +2968,7 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;target/classes&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("outputDirectory", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("outputDirectory", DataType="string")]
         public string OutputDirectory { get; set; }
         
         /// <summary>
@@ -2978,7 +2978,7 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;target/test-classes&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("testOutputDirectory", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("testOutputDirectory", DataType="string")]
         public string TestOutputDirectory { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -2988,8 +2988,8 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>A set of build extensions to use from this project.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("extensions", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("extension", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("extensions")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("extension")]
         public System.Collections.Generic.List<Extension> Extensions
         {
             get
@@ -3031,7 +3031,7 @@ namespace MavenNet.Models
 ///            project is relevant, i.e. the default goals of child modules are ignored. Since Maven 3,
 ///            multiple goals/phases can be separated by whitespace.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("defaultGoal", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("defaultGoal", DataType="string")]
         public string DefaultGoal { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -3046,8 +3046,8 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;src/main/resources&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("resources", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("resource", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("resources")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("resource")]
         public System.Collections.Generic.List<Resource> Resources
         {
             get
@@ -3080,8 +3080,8 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;src/test/resources&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("testResources", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("testResource", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("testResources")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("testResource")]
         public System.Collections.Generic.List<Resource> TestResources
         {
             get
@@ -3110,7 +3110,7 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;target&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("directory", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("directory", DataType="string")]
         public string Directory { get; set; }
         
         /// <summary>
@@ -3123,7 +3123,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("finalName", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("finalName", DataType="string")]
         public string FinalName { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -3133,8 +3133,8 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The list of filter properties files that are used when filtering is enabled.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("filters", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("filter", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("filters")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("filter", DataType="string")]
         public System.Collections.Generic.List<string> Filters
         {
             get
@@ -3163,7 +3163,7 @@ namespace MavenNet.Models
 ///            lifecycle unless referenced. Any local configuration for a given plugin will override
 ///            the plugin's entire definition here.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("pluginManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("pluginManagement")]
         public PluginManagement PluginManagement { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -3173,8 +3173,8 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The list of plugins to use.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("plugins", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("plugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("plugins")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("plugin")]
         public System.Collections.Generic.List<Plugin> Plugins
         {
             get
@@ -3200,7 +3200,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildExtensions", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildExtensions", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildExtensions
     {
@@ -3210,7 +3210,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("extension", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("extension")]
         public System.Collections.Generic.List<Extension> Extension
         {
             get
@@ -3247,7 +3247,7 @@ namespace MavenNet.Models
     /// <para>Describes a build extension to utilise.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Extension", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Extension")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Extension
     {
@@ -3256,28 +3256,28 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The group ID of the extension's artifact.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("groupId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("groupId", DataType="string")]
         public string GroupId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The artifact ID of the extension.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("artifactId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("artifactId", DataType="string")]
         public string ArtifactId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The version of the extension.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("version", DataType="string")]
         public string Version { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildResources", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildResources", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildResources
     {
@@ -3287,7 +3287,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("resource", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("resource")]
         public System.Collections.Generic.List<Resource> Resource
         {
             get
@@ -3325,7 +3325,7 @@ namespace MavenNet.Models
 ///        or unit tests.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Resource", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Resource")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Resource
     {
@@ -3344,7 +3344,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("targetPath", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("targetPath", DataType="string")]
         public string TargetPath { get; set; }
         
         /// <summary>
@@ -3359,7 +3359,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("filtering", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("filtering", DataType="string")]
         public string Filtering { get; set; }
         
         /// <summary>
@@ -3367,7 +3367,7 @@ namespace MavenNet.Models
         /// <para>Describe the directory where the resources are stored. The path is relative
 ///            to the POM.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("directory", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("directory", DataType="string")]
         public string Directory { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -3381,8 +3381,8 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("includes", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("include", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("includes")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("include", DataType="string")]
         public System.Collections.Generic.List<string> Includes
         {
             get
@@ -3425,8 +3425,8 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("excludes", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("exclude", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("excludes")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("exclude", DataType="string")]
         public System.Collections.Generic.List<string> Excludes
         {
             get
@@ -3452,7 +3452,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ResourceIncludes", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ResourceIncludes", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ResourceIncludes
     {
@@ -3462,7 +3462,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("include", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("include", DataType="string")]
         public System.Collections.Generic.List<string> Include
         {
             get
@@ -3497,7 +3497,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ResourceExcludes", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ResourceExcludes", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ResourceExcludes
     {
@@ -3507,7 +3507,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("exclude", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("exclude", DataType="string")]
         public System.Collections.Generic.List<string> Exclude
         {
             get
@@ -3542,7 +3542,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildTestResources", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildTestResources", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildTestResources
     {
@@ -3552,7 +3552,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("testResource", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("testResource")]
         public System.Collections.Generic.List<Resource> TestResource
         {
             get
@@ -3587,7 +3587,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildFilters", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildFilters", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildFilters
     {
@@ -3597,7 +3597,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("filter", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("filter", DataType="string")]
         public System.Collections.Generic.List<string> Filter
         {
             get
@@ -3635,7 +3635,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("PluginManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("PluginManagement")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class PluginManagement
     {
@@ -3647,8 +3647,8 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The list of plugins to use.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("plugins", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("plugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("plugins")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("plugin")]
         public System.Collections.Generic.List<Plugin> Plugins
         {
             get
@@ -3683,7 +3683,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("PluginManagementPlugins", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("PluginManagementPlugins", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class PluginManagementPlugins
     {
@@ -3693,7 +3693,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("plugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("plugin")]
         public System.Collections.Generic.List<Plugin> Plugin
         {
             get
@@ -3734,7 +3734,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Plugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Plugin")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Plugin
     {
@@ -3747,7 +3747,7 @@ namespace MavenNet.Models
         /// <para>The group ID of the plugin in the repository.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("org.apache.maven.plugins")]
-        [System.Xml.Serialization.XmlElementAttribute("groupId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("groupId", DataType="string")]
         public string GroupId
         {
             get
@@ -3764,14 +3764,14 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The artifact ID of the plugin in the repository.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("artifactId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("artifactId", DataType="string")]
         public string ArtifactId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The version (or valid range of versions) of the plugin to be used.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("version", DataType="string")]
         public string Version { get; set; }
         
         /// <summary>
@@ -3785,7 +3785,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("extensions", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("extensions", DataType="string")]
         public string Extensions { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -3796,8 +3796,8 @@ namespace MavenNet.Models
         /// <para>Multiple specifications of a set of goals to execute during the build
 ///            lifecycle, each having (possibly) a different configuration.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("executions", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("execution", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("executions")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("execution")]
         public System.Collections.Generic.List<PluginExecution> Executions
         {
             get
@@ -3837,8 +3837,8 @@ namespace MavenNet.Models
         /// <para>Additional dependencies that this project needs to introduce to the plugin's
 ///            classloader.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("dependencies", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("dependency", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("dependencies")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("dependency")]
         public System.Collections.Generic.List<Dependency> Dependencies
         {
             get
@@ -3868,7 +3868,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("goals", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("goals")]
         public PluginGoals Goals { get; set; }
         
         /// <summary>
@@ -3881,7 +3881,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("inherited", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("inherited", DataType="string")]
         public string Inherited { get; set; }
         
         /// <summary>
@@ -3903,14 +3903,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("configuration", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("configuration")]
         public PluginConfiguration Configuration { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("PluginExecutions", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("PluginExecutions", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class PluginExecutions
     {
@@ -3920,7 +3920,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("execution", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("execution")]
         public System.Collections.Generic.List<PluginExecution> Execution
         {
             get
@@ -3962,7 +3962,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("PluginExecution", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("PluginExecution")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class PluginExecution
     {
@@ -3976,7 +3976,7 @@ namespace MavenNet.Models
 ///            and for matching executions to merge during inheritance and profile injection.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("default")]
-        [System.Xml.Serialization.XmlElementAttribute("id", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("id", DataType="string")]
         public string Id
         {
             get
@@ -3994,7 +3994,7 @@ namespace MavenNet.Models
         /// <para>The build lifecycle phase to bind the goals in this execution to. If omitted,
 ///            the goals will be bound to the default phase specified by the plugin. </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("phase", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("phase", DataType="string")]
         public string Phase { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -4004,8 +4004,8 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The goals to execute with the given configuration.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("goals", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("goal", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("goals")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("goal", DataType="string")]
         public System.Collections.Generic.List<string> Goals
         {
             get
@@ -4046,7 +4046,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("inherited", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("inherited", DataType="string")]
         public string Inherited { get; set; }
         
         /// <summary>
@@ -4068,14 +4068,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("configuration", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("configuration")]
         public PluginExecutionConfiguration Configuration { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("PluginExecutionGoals", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("PluginExecutionGoals", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class PluginExecutionGoals
     {
@@ -4085,7 +4085,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("goal", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("goal", DataType="string")]
         public System.Collections.Generic.List<string> Goal
         {
             get
@@ -4120,7 +4120,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("PluginExecutionConfiguration", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("PluginExecutionConfiguration", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class PluginExecutionConfiguration
     {
@@ -4165,7 +4165,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("PluginDependencies", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("PluginDependencies", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class PluginDependencies
     {
@@ -4175,7 +4175,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("dependency", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("dependency")]
         public System.Collections.Generic.List<Dependency> Dependency
         {
             get
@@ -4210,7 +4210,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("PluginGoals", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("PluginGoals", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class PluginGoals
     {
@@ -4255,7 +4255,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("PluginConfiguration", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("PluginConfiguration", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class PluginConfiguration
     {
@@ -4300,7 +4300,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildPlugins", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildPlugins", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildPlugins
     {
@@ -4310,7 +4310,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("plugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("plugin")]
         public System.Collections.Generic.List<Plugin> Plugin
         {
             get
@@ -4345,7 +4345,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelReports", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelReports", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelReports
     {
@@ -4392,7 +4392,7 @@ namespace MavenNet.Models
     /// <para>Section for management of reports and their configuration.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Reporting", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Reporting")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Reporting
     {
@@ -4408,7 +4408,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("excludeDefaults", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("excludeDefaults", DataType="string")]
         public string ExcludeDefaults { get; set; }
         
         /// <summary>
@@ -4420,7 +4420,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("outputDirectory", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("outputDirectory", DataType="string")]
         public string OutputDirectory { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -4430,8 +4430,8 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The reporting plugins to use and their configuration.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("plugins", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("plugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("plugins")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("plugin")]
         public System.Collections.Generic.List<ReportPlugin> Plugins
         {
             get
@@ -4466,7 +4466,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ReportingPlugins", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ReportingPlugins", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ReportingPlugins
     {
@@ -4476,7 +4476,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("plugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("plugin")]
         public System.Collections.Generic.List<ReportPlugin> Plugin
         {
             get
@@ -4517,7 +4517,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ReportPlugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("ReportPlugin")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ReportPlugin
     {
@@ -4530,7 +4530,7 @@ namespace MavenNet.Models
         /// <para>The group ID of the reporting plugin in the repository.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("org.apache.maven.plugins")]
-        [System.Xml.Serialization.XmlElementAttribute("groupId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("groupId", DataType="string")]
         public string GroupId
         {
             get
@@ -4547,14 +4547,14 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The artifact ID of the reporting plugin in the repository.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("artifactId", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("artifactId", DataType="string")]
         public string ArtifactId { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The version of the reporting plugin to be used.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("version", DataType="string")]
         public string Version { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -4569,8 +4569,8 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("reportSets", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("reportSet", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("reportSets")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("reportSet")]
         public System.Collections.Generic.List<ReportSet> ReportSets
         {
             get
@@ -4611,7 +4611,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("inherited", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("inherited", DataType="string")]
         public string Inherited { get; set; }
         
         /// <summary>
@@ -4633,14 +4633,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("configuration", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("configuration")]
         public ReportPluginConfiguration Configuration { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ReportPluginReportSets", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ReportPluginReportSets", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ReportPluginReportSets
     {
@@ -4650,7 +4650,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("reportSet", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("reportSet")]
         public System.Collections.Generic.List<ReportSet> ReportSet
         {
             get
@@ -4687,7 +4687,7 @@ namespace MavenNet.Models
     /// <para>Represents a set of reports and configuration to be used to generate them.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ReportSet", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("ReportSet")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ReportSet
     {
@@ -4702,7 +4702,7 @@ namespace MavenNet.Models
 ///          </para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("default")]
-        [System.Xml.Serialization.XmlElementAttribute("id", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("id", DataType="string")]
         public string Id
         {
             get
@@ -4722,8 +4722,8 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The list of reports from this plugin which should be generated from this set.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("reports", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("report", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("reports")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("report", DataType="string")]
         public System.Collections.Generic.List<string> Reports
         {
             get
@@ -4764,7 +4764,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("inherited", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("inherited", DataType="string")]
         public string Inherited { get; set; }
         
         /// <summary>
@@ -4786,14 +4786,14 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("configuration", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("configuration")]
         public ReportSetConfiguration Configuration { get; set; }
     }
     
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ReportSetReports", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ReportSetReports", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ReportSetReports
     {
@@ -4803,7 +4803,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("report", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("report", DataType="string")]
         public System.Collections.Generic.List<string> Report
         {
             get
@@ -4838,7 +4838,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ReportSetConfiguration", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ReportSetConfiguration", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ReportSetConfiguration
     {
@@ -4883,7 +4883,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ReportPluginConfiguration", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ReportPluginConfiguration", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ReportPluginConfiguration
     {
@@ -4928,7 +4928,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ModelProfiles", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ModelProfiles", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ModelProfiles
     {
@@ -4938,7 +4938,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("profile", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("profile")]
         public System.Collections.Generic.List<Profile> Profile
         {
             get
@@ -4976,7 +4976,7 @@ namespace MavenNet.Models
 ///        parameters or command line arguments.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Profile", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Profile")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Profile
     {
@@ -4991,7 +4991,7 @@ namespace MavenNet.Models
 ///          </para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute("default")]
-        [System.Xml.Serialization.XmlElementAttribute("id", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("id", DataType="string")]
         public string Id
         {
             get
@@ -5009,14 +5009,14 @@ namespace MavenNet.Models
         /// <para>The conditional logic which will automatically trigger the inclusion of this
 ///            profile.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("activation", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("activation")]
         public Activation Activation { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>Information required to build the project.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("build", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("build")]
         public BuildBase Build { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -5029,8 +5029,8 @@ namespace MavenNet.Models
 ///            To be consistent with the way default urls are calculated from parent, it is recommended
 ///            to have module names match artifact ids.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("modules", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("module", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("modules")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("module", DataType="string")]
         public System.Collections.Generic.List<string> Modules
         {
             get
@@ -5069,7 +5069,7 @@ namespace MavenNet.Models
         /// <para>Distribution information for a project that enables deployment of the site
 ///            and artifacts to remote web servers and repositories respectively.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("distributionManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("distributionManagement")]
         public DistributionManagement DistributionManagement { get; set; }
         
         /// <summary>
@@ -5082,7 +5082,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("properties", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("properties")]
         public ProfileProperties Properties { get; set; }
         
         /// <summary>
@@ -5093,7 +5093,7 @@ namespace MavenNet.Models
 ///            version and other values from this section are used for that dependency if they were not
 ///            already specified.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("dependencyManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("dependencyManagement")]
         public DependencyManagement DependencyManagement { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -5113,8 +5113,8 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("dependencies", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("dependency", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("dependencies")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("dependency")]
         public System.Collections.Generic.List<Dependency> Dependencies
         {
             get
@@ -5144,8 +5144,8 @@ namespace MavenNet.Models
         /// <para>The lists of the remote repositories for discovering dependencies and
 ///            extensions.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("repositories", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("repository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("repositories")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("repository")]
         public System.Collections.Generic.List<Repository> Repositories
         {
             get
@@ -5175,8 +5175,8 @@ namespace MavenNet.Models
         /// <para>The lists of the remote repositories for discovering plugins for builds and
 ///            reports.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("pluginRepositories", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("pluginRepository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("pluginRepositories")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("pluginRepository")]
         public System.Collections.Generic.List<Repository> PluginRepositories
         {
             get
@@ -5206,7 +5206,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("reports", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("reports")]
         public ProfileReports Reports { get; set; }
         
         /// <summary>
@@ -5220,7 +5220,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("reporting", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("reporting")]
         public Reporting Reporting { get; set; }
     }
     
@@ -5232,7 +5232,7 @@ namespace MavenNet.Models
 ///      </para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("Activation", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("Activation")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class Activation
     {
@@ -5247,7 +5247,7 @@ namespace MavenNet.Models
 ///            activators.</para>
         /// </summary>
         [System.ComponentModel.DefaultValueAttribute(false)]
-        [System.Xml.Serialization.XmlElementAttribute("activeByDefault", Namespace="http://maven.apache.org/POM/4.0.0", DataType="boolean")]
+        [System.Xml.Serialization.XmlElementAttribute("activeByDefault", DataType="boolean")]
         public bool ActiveByDefault
         {
             get
@@ -5271,7 +5271,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("jdk", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("jdk", DataType="string")]
         public string Jdk { get; set; }
         
         /// <summary>
@@ -5279,7 +5279,7 @@ namespace MavenNet.Models
         /// <para>Specifies that this profile will be activated when matching operating system
 ///            attributes are detected.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("os", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("os")]
         public ActivationOS Os { get; set; }
         
         /// <summary>
@@ -5287,14 +5287,14 @@ namespace MavenNet.Models
         /// <para>Specifies that this profile will be activated when this system property is
 ///            specified.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("property", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("property")]
         public ActivationProperty Property { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>Specifies that this profile will be activated based on existence of a file.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("file", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("file")]
         public ActivationFile File { get; set; }
     }
     
@@ -5304,7 +5304,7 @@ namespace MavenNet.Models
 ///        to activate its profile.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ActivationOS", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("ActivationOS")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ActivationOS
     {
@@ -5318,7 +5318,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
@@ -5330,7 +5330,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("family", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("family", DataType="string")]
         public string Family { get; set; }
         
         /// <summary>
@@ -5338,7 +5338,7 @@ namespace MavenNet.Models
         /// <para>The architecture of the operating system to be used to activate the
 ///          profile.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("arch", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("arch", DataType="string")]
         public string Arch { get; set; }
         
         /// <summary>
@@ -5346,7 +5346,7 @@ namespace MavenNet.Models
         /// <para>The version of the operating system to be used to activate the
 ///          profile.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("version", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("version", DataType="string")]
         public string Version { get; set; }
     }
     
@@ -5357,7 +5357,7 @@ namespace MavenNet.Models
 ///        does a case-sensitive match against the property value as well.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ActivationProperty", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("ActivationProperty")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ActivationProperty
     {
@@ -5366,14 +5366,14 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The name of the property to be used to activate a profile.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("name", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("name", DataType="string")]
         public string Name { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The value of the property required to activate a profile.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("value", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("value", DataType="string")]
         public string Value { get; set; }
     }
     
@@ -5387,7 +5387,7 @@ namespace MavenNet.Models
 ///        System properties and request properties.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ActivationFile", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("ActivationFile")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ActivationFile
     {
@@ -5397,14 +5397,14 @@ namespace MavenNet.Models
         /// <para>The name of the file that must be missing to activate the
 ///          profile.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("missing", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("missing", DataType="string")]
         public string Missing { get; set; }
         
         /// <summary>
         /// <para>4.0.0+</para>
         /// <para>The name of the file that must exist to activate the profile.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("exists", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("exists", DataType="string")]
         public string Exists { get; set; }
     }
     
@@ -5413,7 +5413,7 @@ namespace MavenNet.Models
     /// <para>Generic informations for a build.</para>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildBase", Namespace="http://maven.apache.org/POM/4.0.0")]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildBase")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildBase
     {
@@ -5425,7 +5425,7 @@ namespace MavenNet.Models
 ///            project is relevant, i.e. the default goals of child modules are ignored. Since Maven 3,
 ///            multiple goals/phases can be separated by whitespace.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("defaultGoal", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("defaultGoal", DataType="string")]
         public string DefaultGoal { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -5440,8 +5440,8 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;src/main/resources&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("resources", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("resource", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("resources")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("resource")]
         public System.Collections.Generic.List<Resource> Resources
         {
             get
@@ -5486,8 +5486,8 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;src/test/resources&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("testResources", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("testResource", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("testResources")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("testResource")]
         public System.Collections.Generic.List<Resource> TestResources
         {
             get
@@ -5516,7 +5516,7 @@ namespace MavenNet.Models
 ///            The default value is &lt;code&gt;target&lt;/code&gt;.
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("directory", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("directory", DataType="string")]
         public string Directory { get; set; }
         
         /// <summary>
@@ -5529,7 +5529,7 @@ namespace MavenNet.Models
 ///            
 ///          </para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("finalName", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("finalName", DataType="string")]
         public string FinalName { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -5539,8 +5539,8 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The list of filter properties files that are used when filtering is enabled.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("filters", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("filter", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlArrayAttribute("filters")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("filter", DataType="string")]
         public System.Collections.Generic.List<string> Filters
         {
             get
@@ -5569,7 +5569,7 @@ namespace MavenNet.Models
 ///            lifecycle unless referenced. Any local configuration for a given plugin will override
 ///            the plugin's entire definition here.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("pluginManagement", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("pluginManagement")]
         public PluginManagement PluginManagement { get; set; }
         
         [System.Xml.Serialization.XmlIgnoreAttribute()]
@@ -5579,8 +5579,8 @@ namespace MavenNet.Models
         /// <para>4.0.0+</para>
         /// <para>The list of plugins to use.</para>
         /// </summary>
-        [System.Xml.Serialization.XmlArrayAttribute("plugins", Namespace="http://maven.apache.org/POM/4.0.0")]
-        [System.Xml.Serialization.XmlArrayItemAttribute("plugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlArrayAttribute("plugins")]
+        [System.Xml.Serialization.XmlArrayItemAttribute("plugin")]
         public System.Collections.Generic.List<Plugin> Plugins
         {
             get
@@ -5606,7 +5606,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildBaseResources", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildBaseResources", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildBaseResources
     {
@@ -5616,7 +5616,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("resource", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("resource")]
         public System.Collections.Generic.List<Resource> Resource
         {
             get
@@ -5651,7 +5651,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildBaseTestResources", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildBaseTestResources", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildBaseTestResources
     {
@@ -5661,7 +5661,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("testResource", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("testResource")]
         public System.Collections.Generic.List<Resource> TestResource
         {
             get
@@ -5696,7 +5696,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildBaseFilters", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildBaseFilters", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildBaseFilters
     {
@@ -5706,7 +5706,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("filter", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("filter", DataType="string")]
         public System.Collections.Generic.List<string> Filter
         {
             get
@@ -5741,7 +5741,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("BuildBasePlugins", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("BuildBasePlugins", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class BuildBasePlugins
     {
@@ -5751,7 +5751,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("plugin", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("plugin")]
         public System.Collections.Generic.List<Plugin> Plugin
         {
             get
@@ -5786,7 +5786,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ProfileModules", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ProfileModules", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ProfileModules
     {
@@ -5796,7 +5796,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("module", Namespace="http://maven.apache.org/POM/4.0.0", DataType="string")]
+        [System.Xml.Serialization.XmlElementAttribute("module", DataType="string")]
         public System.Collections.Generic.List<string> Module
         {
             get
@@ -5831,7 +5831,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ProfileProperties", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ProfileProperties", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ProfileProperties
     {
@@ -5876,7 +5876,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ProfileDependencies", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ProfileDependencies", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ProfileDependencies
     {
@@ -5886,7 +5886,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("dependency", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("dependency")]
         public System.Collections.Generic.List<Dependency> Dependency
         {
             get
@@ -5921,7 +5921,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ProfileRepositories", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ProfileRepositories", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ProfileRepositories
     {
@@ -5931,7 +5931,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("repository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("repository")]
         public System.Collections.Generic.List<Repository> Repository
         {
             get
@@ -5966,7 +5966,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ProfilePluginRepositories", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ProfilePluginRepositories", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ProfilePluginRepositories
     {
@@ -5976,7 +5976,7 @@ namespace MavenNet.Models
         
         /// <summary>
         /// </summary>
-        [System.Xml.Serialization.XmlElementAttribute("pluginRepository", Namespace="http://maven.apache.org/POM/4.0.0")]
+        [System.Xml.Serialization.XmlElementAttribute("pluginRepository")]
         public System.Collections.Generic.List<Repository> PluginRepository
         {
             get
@@ -6011,7 +6011,7 @@ namespace MavenNet.Models
     /// <summary>
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("XmlSchemaClassGenerator", "1.0.34.0")]
-    [System.Xml.Serialization.XmlTypeAttribute("ProfileReports", Namespace="http://maven.apache.org/POM/4.0.0", AnonymousType=true)]
+    [System.Xml.Serialization.XmlTypeAttribute("ProfileReports", AnonymousType=true)]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     public partial class ProfileReports
     {
