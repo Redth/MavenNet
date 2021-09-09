@@ -56,6 +56,24 @@ namespace MavenNet
             return artifacts;
         }
 
+        // Optimization that avoids the Maven search, which also avoids the 100 row limit
+        protected override async Task<IEnumerable<Artifact>> GetArtifactsAsync(string groupId, params string[] artifactIds)
+        {
+            var artifacts = new List<Artifact>();
+
+            foreach (var aid in artifactIds) {
+                try {
+                    using (var s = await OpenMavenMetadataFile(groupId, aid).ConfigureAwait(false)) {
+                        var metadata = MavenMetadataParser.Parse(s);
+
+                        artifacts.Add(new Artifact(aid, groupId, metadata.AllVersions.ToArray()));
+                    }
+                } catch { }
+            }
+
+            return artifacts;
+        }
+
         protected override Task<IEnumerable<string>> GetGroupIdsAsync()
         {
             return Task.FromResult<IEnumerable<string>>(new List<string>());

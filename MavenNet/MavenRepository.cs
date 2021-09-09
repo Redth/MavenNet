@@ -41,6 +41,7 @@ namespace MavenNet
         protected abstract Task<Stream> OpenFileAsync(string path);
         protected abstract Task<IEnumerable<string>> GetGroupIdsAsync();
         protected abstract Task<IEnumerable<Artifact>> GetArtifactsAsync(string groupId);
+        protected async virtual Task<IEnumerable<Artifact>> GetArtifactsAsync(string groupId, params string[] artifactIds) => (await GetArtifactsAsync(groupId)).Where(a => artifactIds.Contains(a.Id));
         protected abstract string CombinePaths(params string[] parts);
 
         public virtual async Task Refresh()
@@ -85,6 +86,25 @@ namespace MavenNet
             }
 
             return Task.CompletedTask;
+        }
+
+        public virtual async Task Populate(string groupId, params string[] artifactIds)
+        {
+            var g = Groups.FirstOrDefault(a => a.Id == groupId);
+
+            if (g is null) {
+                g = new Group(groupId);
+                Groups.Add(g);
+            }
+
+            var artifacts = await GetArtifactsAsync(groupId, artifactIds).ConfigureAwait(false);
+
+            // Set a reference to this repository implementation
+            foreach (var a in artifacts)
+            {
+                a.Repository = this;
+                g.Artifacts.Add(a);
+            }
         }
 
         public virtual Task<Stream> OpenArtifactPomFile(string groupId, string artifactId, string version)
