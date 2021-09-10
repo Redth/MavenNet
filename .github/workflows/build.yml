@@ -25,7 +25,7 @@ jobs:
       with:
         nuget-version: '5.x'
     - name: Build
-      run: msbuild -p:Configuration=Release
+      run: msbuild -r -p:Configuration=Release
    # - name: Test
    #   run: dotnet test --configuration Release
     - name: Package NuGets
@@ -39,7 +39,7 @@ jobs:
         echo "PACKAGE VERSION: $VERSION"
         
         New-Item -ItemType Directory -Force -Path .\artifacts
-        msbuild -t:Pack -p:PackageOutputPath=./artifacts -p:Configuration=Release -p:PackageVersion=$VERSION ./MavenNet/MavenNet.csproj
+        msbuild -t:Pack -r -p:PackageOutputPath=./artifacts -p:Configuration=Release -p:PackageVersion=$VERSION ./MavenNet/MavenNet.csproj
 
         $pfxPath = Join-Path -Path $pwd -ChildPath "codesigncert.pfx"
         [IO.File]::WriteAllBytes("$pfxPath", [System.Convert]::FromBase64String($env:CODESIGN_PFX))
