@@ -38,8 +38,7 @@ jobs:
         echo "::set-output name=pkgverci::$VERSION"
         echo "PACKAGE VERSION: $VERSION"
         
-        New-Item -ItemType Directory -Force -Path .\artifacts
-        msbuild -t:Pack -r -p:PackageOutputPath=./artifacts -p:Configuration=Release -p:PackageVersion=$VERSION ./MavenNet/MavenNet.csproj
+        msbuild -t:Pack -r -p:PackageOutputPath=../artifacts -p:Configuration=Release -p:PackageVersion=$VERSION ./MavenNet/MavenNet.csproj
 
         $pfxPath = Join-Path -Path $pwd -ChildPath "codesigncert.pfx"
         [IO.File]::WriteAllBytes("$pfxPath", [System.Convert]::FromBase64String($env:CODESIGN_PFX))
