@@ -12,7 +12,7 @@ jobs:
     env:
       NUPKG_MAJOR: 2.2
       CODESIGN_PFX: ${{ secrets.CODESIGN_PFX }}
-    runs-on: macos-latest
+    runs-on: windows-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -38,7 +38,7 @@ jobs:
         echo "::set-output name=pkgverci::$VERSION"
         echo "PACKAGE VERSION: $VERSION"
         
-        msbuild -t:Pack -r -p:PackageOutputPath=../artifacts -p:Configuration=Release -p:PackageVersion=$VERSION ./MavenNet/MavenNet.csproj
+        msbuild -t:Pack -r -p:PackageOutputPath=..\artifacts -p:Configuration=Release -p:PackageVersion=$VERSION .\MavenNet\MavenNet.csproj
 
         $pfxPath = Join-Path -Path $pwd -ChildPath "codesigncert.pfx"
         [IO.File]::WriteAllBytes("$pfxPath", [System.Convert]::FromBase64String($env:CODESIGN_PFX))
@@ -48,7 +48,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: NuGet
-        path: ./artifacts
+        path: .\artifacts
 
   publish:
     name: Publish
