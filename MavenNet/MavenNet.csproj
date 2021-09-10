@@ -10,8 +10,12 @@
     <Title>MavenNet</Title>
     <Description>A .NET Client for inspecting and interacting with Maven Repositories</Description>
     <Summary>A .NET Client for inspecting and interacting with Maven Repositories</Summary>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/Redth/MavenNet/master/LICENSE</PackageLicenseUrl>
-    <PackageLicenseUrl>https://github.com/Redth/MavenNet</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/redth/MavenNet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/redth/MavenNet</RepositoryUrl>
+		<AssemblyFileVersion>$(PackageVersion)</AssemblyFileVersion>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<DebugType>portable</DebugType>
     <PackageTags>Maven</PackageTags>
     <Authors>Redth</Authors>
     <Owners>Redth</Owners>
@@ -21,6 +25,10 @@
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
  
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true' Or '$(TF_BUILD)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="Properties\AssemblyInfo.cs" />
   </ItemGroup>
