@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MavenNet.Models;
+
+using Newtonsoft.Json.Linq;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using MavenNet.Models;
-using Newtonsoft.Json.Linq;
 
 namespace MavenNet
 {
@@ -14,12 +15,18 @@ namespace MavenNet
         protected override char PathSeparator
             => '/';
 
+        static readonly HttpClient http = new HttpClient();
+
+        public MavenCentralRepository()
+        {
+            http.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", ".net 6");
+        }
+
         protected override string CombinePaths(params string[] parts)
         {
             return string.Join(new string(PathSeparator, 1), parts);
         }
 
-        static readonly HttpClient http = new HttpClient();
 
         protected override async Task<IEnumerable<Artifact>> GetArtifactsAsync(string groupId)
         {
@@ -49,7 +56,10 @@ namespace MavenNet
                             artifacts.Add(new Artifact(aid, gid, metadata.AllVersions.ToArray()));
                         }
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
             }
 
@@ -61,14 +71,21 @@ namespace MavenNet
         {
             var artifacts = new List<Artifact>();
 
-            foreach (var aid in artifactIds) {
-                try {
-                    using (var s = await OpenMavenMetadataFile(groupId, aid).ConfigureAwait(false)) {
+            foreach (var aid in artifactIds)
+            {
+                try
+                {
+                    using (var s = await OpenMavenMetadataFile(groupId, aid).ConfigureAwait(false))
+                    {
                         var metadata = MavenMetadataParser.Parse(s);
 
                         artifacts.Add(new Artifact(aid, groupId, metadata.AllVersions.ToArray()));
                     }
-                } catch { }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
 
             return artifacts;
