@@ -2,6 +2,7 @@
 
 using Newtonsoft.Json.Linq;
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -33,9 +34,7 @@ namespace MavenNet
 
             var url = $"http://search.maven.org/solrsearch/select?q=g:%22{groupId}%22&rows=100&wt=json";
 
-            string data = string.Empty;
-
-            data = await http.GetStringAsync(url);
+            var data = await http.GetStringAsync(url);
 
             var json = JObject.Parse(data);
 
@@ -57,7 +56,10 @@ namespace MavenNet
                             artifacts.Add(new Artifact(aid, gid, metadata.AllVersions.ToArray()));
                         }
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
             }
 
