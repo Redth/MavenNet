@@ -82,7 +82,10 @@ namespace MavenNet
                         artifacts.Add(new Artifact(aid, groupId, metadata.AllVersions.ToArray()));
                     }
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
 
             return artifacts;
