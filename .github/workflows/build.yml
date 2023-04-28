@@ -15,19 +15,8 @@ jobs:
     runs-on: windows-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup .NET 5.0
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '5.0.x'
-    - name: Setup NuGet 5.x
-      uses: nuget/setup-nuget@v1
-      with:
-        nuget-version: '5.x'
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.3
-    - name: Build
-      run: msbuild -r -p:Configuration=Release
+      uses: actions/checkout@v3
+
    # - name: Test
    #   run: dotnet test --configuration Release
     - name: Package NuGets
@@ -40,17 +29,17 @@ jobs:
         echo "::set-output name=pkgverci::$VERSION"
         echo "PACKAGE VERSION: $VERSION"
         
-        msbuild -t:Pack -r -p:PackageOutputPath=..\artifacts -p:Configuration=Release -p:PackageVersion=$VERSION .\MavenNet\MavenNet.csproj
+        dotnet pack -p:PackageOutputPath=..\artifacts -p:Configuration=Release -p:PackageVersion=$VERSION .\MavenNet\MavenNet.csproj
 
         $pfxPath = Join-Path -Path $pwd -ChildPath "codesigncert.pfx"
         [IO.File]::WriteAllBytes("$pfxPath", [System.Convert]::FromBase64String($env:CODESIGN_PFX))
-        nuget sign .\artifacts\*.nupkg -CertificatePath $pfxPath -Timestamper http://timestamp.entrust.net/TSS/RFC3161sha2TS
+        dotnet nuget sign .\artifacts\*.nupkg -CertificatePath $pfxPath -Timestamper http://timestamp.entrust.net/TSS/RFC3161sha2TS
         
     - name: Artifacts
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
         name: NuGet
-        path: .\artifacts
+        path: ./artifacts
 
   publish:
     name: Publish
@@ -59,13 +48,9 @@ jobs:
     if: github.event_name == 'release'
     steps:
       - name: Download Artifacts
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3
         with:
           name: NuGet
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '5.0.x'
       - name: Push NuGet
         run: |
           dotnet nuget push NuGet\*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_ORG_API_KEY }}
