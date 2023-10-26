@@ -19,7 +19,7 @@ namespace MavenNet.Models
 		public string Id { get; private set; }
 		public IList<string> Versions { get; private set; }
 
-		public MavenRepository Repository { get; internal set; }
+		public MavenRepository Repository { get; set; }
 
 		public async Task<Models.Metadata> GetMetadata ()
 		{
