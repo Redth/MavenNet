@@ -19,15 +19,16 @@ namespace MavenNet
             return string.Join(new string(PathSeparator, 1), parts);
         }
 
-        static readonly HttpClient http = new HttpClient();
-
         protected override async Task<IEnumerable<Artifact>> GetArtifactsAsync(string groupId)
         {
             var artifacts = new List<Artifact>();
 
             var url = $"http://search.maven.org/solrsearch/select?q=g:%22{groupId}%22&rows=100&wt=json";
 
-            var data = await http.GetStringAsync(url);
+            // enable by default?
+            // HttpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36");
+
+            var data = await HttpClient.GetStringAsync(url);
 
             var json = JObject.Parse(data);
 
@@ -83,7 +84,7 @@ namespace MavenNet
         {
             var url = $"https://repo1.maven.org/maven2/{path}";
 
-            return http.GetStreamAsync(url);
+            return HttpClient.GetStreamAsync(url);
         }
     }
 }

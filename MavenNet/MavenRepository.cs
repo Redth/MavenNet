@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using MavenNet.Models;
+using System.Net.Http;
 
 namespace MavenNet
 {
     public abstract class MavenRepository : IMavenRepository
     {
+        public static readonly HttpClient HttpClient = new HttpClient();
+
         public static GoogleMavenRepository FromGoogle()
         {
             return new GoogleMavenRepository();

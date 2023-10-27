@@ -100,5 +100,35 @@ namespace MavenNet.Tests
 
 			Assert.True(project.Dependencies?.Any());
 		}
-	}
+
+        [Fact]
+        public async Task Test_GroupIds_Project_MAVENCENTRAL_1()
+        {
+            var repo = MavenRepository.FromMavenCentral();
+            MavenRepository.HttpClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36");
+            await repo.Refresh("com.google.accompanist");
+
+            var project = await repo.GetProjectAsync("com.google.accompanist", "accompanist-appcompat-theme", "0.30.1");
+
+            Assert.True(project != null);
+
+            Assert.True(project.Dependencies?.Any());
+        }
+
+        [Fact]
+        public async Task Test_GroupIds_Project_MAVENCENTRAL_2()
+        {
+            var repo = MavenRepository.FromMavenCentral();
+            MavenRepository.HttpClient.DefaultRequestHeaders.Clear();
+            await repo.Refresh("com.google.accompanist");
+
+            try
+            {
+                var project = await repo.GetProjectAsync("com.google.accompanist", "accompanist-appcompat-theme", "0.30.1");
+            }
+            finally
+            {
+            }
+        }
+    }
 }
