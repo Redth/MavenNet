@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -16,7 +17,40 @@ namespace MavenNet
 
 		public bool Satisfies(string version)
 		{
-			var nugetVersion = NuGet.Versioning.NuGetVersion.Parse(version);
+			var nugetVersion = default(NuGet.Versioning.NuGetVersion);
+			
+			try
+			{
+				nugetVersion = NuGet.Versioning.NuGetVersion.Parse(version);
+			}
+			catch (Exception e)
+			{
+				if (e is System.ArgumentException && e.Message.Contains(" is not a valid version string."))
+				{
+					try
+					{
+						int idx = version.LastIndexOf('.');
+						// creating valid SemVer from invalid Maven
+						string semver = version.Substring(0, idx);
+						nugetVersion = NuGet.Versioning.NuGetVersion.Parse(semver);
+						string release_textual = version.Substring(idx + 1, version.Length - idx - 1);
+						try
+						{
+							int release_numeric = int.Parse(release_textual, NumberStyles.HexNumber);
+							nugetVersion = NuGet.Versioning.NuGetVersion.Parse($"{semver}.{release_numeric}");
+						}
+						catch (Exception exception)
+						{
+							nugetVersion = NuGet.Versioning.NuGetVersion.Parse($"{semver}+{release_textual}");
+						}
+					}
+					catch (Exception ei)
+					{
+						Console.WriteLine(ei);
+						throw;
+					}
+				}
+			}
 
 			var v = Regex.Replace(Value, "\\s", "");
 
